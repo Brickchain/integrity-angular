@@ -1,0 +1,25 @@
+{
+  "extends": [
+      "tslint-angular"
+  ],
+  "rules": {
+      "directive-selector": [
+          true,
+          "attribute",
+          [
+              "brickchain",
+              "integrity"
+          ],
+          "camelCase"
+      ],
+      "component-selector": [
+          true,
+          "element",
+          [
+              "brickchain",
+              "integrity"
+          ],
+          "kebab-case"
+      ]
+  }
+}
