@@ -1,9 +1,8 @@
-import { Directive, Input, Output, HostListener } from '@angular/core';
-import { EventEmitter } from '@angular/core';
+import { Directive, Input, Output, HostListener, EventEmitter } from '@angular/core';
 import { ClipboardService } from '../services';
 
 @Directive({
-  selector: '[appClipboard]'
+  selector: '[integrityClipboard]'
 })
 export class ClipboardDirective {
 

@@ -31,7 +31,7 @@ export class QrCodeDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    const svg = qr.imageSync(this.qrUri, { type: 'svg', margin: 1, size: 10 });
+    const svg = <string> qr.imageSync(this.qrUri, { type: 'svg', margin: 1, size: 10 });
     this.qrImage = this.sanitizer.bypassSecurityTrustHtml(svg);
   }
 

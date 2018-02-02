@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class EventsService {
 
-  private subscribers = {};
+  private subscribers: { [topic: string]: Function[] } = {};
 
   constructor() { }
 
