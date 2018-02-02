@@ -1,5 +1,5 @@
 import { Directive, Input, Output, HostListener, EventEmitter } from '@angular/core';
-import { ClipboardService } from '../services';
+import { ClipboardService } from '../services/clipboard.service';
 
 @Directive({
   selector: '[integrityClipboard]'

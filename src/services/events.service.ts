@@ -9,7 +9,7 @@ export class EventsService {
 
   public subscribe(topic: string, ...handlers: Function[]): void {
     handlers.forEach(handler => {
-      if (!this.getSubscribers(topic).includes(handler)) {
+      if (this.getSubscribers(topic).indexOf(handler) === -1) {
         this.getSubscribers(topic).push(handler);
       }
     });

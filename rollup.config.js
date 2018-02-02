@@ -44,6 +44,7 @@ import sourcemaps from 'rollup-plugin-sourcemaps';
 const globals = {
     '@angular/core': 'ng.core',
     '@angular/common': 'ng.common',
+    '@angular/material': 'ng.material',
     'rxjs/Observable': 'Rx',
     'rxjs/Observer': 'Rx'
 };
@@ -54,7 +55,7 @@ export default {
     onwarn: () => { return },
     output: {
         format: 'umd',
-        name: 'ng.integrityWebviewClient',
+        name: 'ng.integrityAngular',
         globals: globals,
         sourcemap: true,
         exports: 'named',

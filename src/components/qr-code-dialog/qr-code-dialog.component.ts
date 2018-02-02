@@ -20,7 +20,7 @@ export class QrCodeDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any) {
     this.qrUri = this.data.uri;
   }
-
+/*
   static showDialog(dialog: MatDialog, data: any): Promise<any> {
     return new Promise((resolve, reject) => {
       const dialogRef = dialog.open(QrCodeDialogComponent, {
@@ -29,7 +29,7 @@ export class QrCodeDialogComponent implements OnInit {
       dialogRef.afterClosed().subscribe(() => resolve());
     });
   }
-
+*/
   ngOnInit() {
     const svg = <string> qr.imageSync(this.qrUri, { type: 'svg', margin: 1, size: 10 });
     this.qrImage = this.sanitizer.bypassSecurityTrustHtml(svg);

@@ -58,7 +58,7 @@ export class DragAndDropDirective implements OnInit {
 
     Array.from(files).forEach((file: File) => {
       const extension = file.name.split('.')[file.name.split('.').length - 1];
-      (!this.extensions || this.extensions.includes(extension)) ? droppedFiles.push(file) : skippedFiles.push(file);
+      (this.extensions && this.extensions.indexOf(extension) !== -1) ? skippedFiles.push(file) : droppedFiles.push(file);
     });
 
     if (droppedFiles.length) {

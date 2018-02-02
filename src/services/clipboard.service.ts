@@ -1,7 +1,7 @@
-import { DOCUMENT } from '@angular/platform-browser';
-import { Inject } from '@angular/core';
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 
+/** @dynamic */
 @Injectable()
 export class ClipboardService {
 
