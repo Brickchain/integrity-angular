@@ -6,14 +6,14 @@ import { ClipboardService } from '../services/clipboard.service';
 })
 export class ClipboardDirective {
 
-  @Input() appClipboard: string;
+  @Input() integrityClipboard: string;
   @Output() copySuccess: EventEmitter<string> = new EventEmitter();
   @Output() copyError: EventEmitter<Error> = new EventEmitter();
 
   constructor(private clipboardService: ClipboardService) { }
 
   @HostListener('click') copyToClipboard(): void {
-    this.clipboardService.copy(this.appClipboard)
+    this.clipboardService.copy(this.integrityClipboard)
       .then(value => this.copySuccess.emit(value))
       .catch(error => this.copyError.emit(error));
   }

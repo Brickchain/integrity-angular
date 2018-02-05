@@ -1,5 +1,4 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-
+import { NgModule } from '@angular/core';
 import { ClipboardService } from '../services/clipboard.service';
 import { ClipboardDirective } from '../directives/clipboard.directive';
 

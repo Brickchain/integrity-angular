@@ -1,11 +1,10 @@
 import { Injectable, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
-/** @dynamic */
 @Injectable()
 export class ClipboardService {
 
-  constructor( @Inject(DOCUMENT) private dom: Document) {
+  constructor( @Inject(DOCUMENT) private dom: any) {
   }
 
   public copy(value: string): Promise<string> {

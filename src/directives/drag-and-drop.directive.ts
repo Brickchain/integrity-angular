@@ -1,5 +1,13 @@
-import { OnInit, ElementRef } from '@angular/core';
-import { Directive, HostListener, HostBinding, EventEmitter, Output, Input } from '@angular/core';
+import {
+  OnInit,
+  ElementRef,
+  Directive,
+  HostListener,
+  HostBinding,
+  EventEmitter,
+  Output,
+  Input
+} from '@angular/core';
 
 @Directive({
   selector: '[integrityDragAndDrop]'
@@ -9,7 +17,7 @@ export class DragAndDropDirective implements OnInit {
   @Input() private includeDataURL: Boolean = false;
   @Input() private extensions: Array<string>;
   @Output() private filesDropped: EventEmitter<File[]> = new EventEmitter();
-  @Output() private filesSkipped: EventEmitter<File[]> = new EventEmitter();
+  @Output() private filesIgnored: EventEmitter<File[]> = new EventEmitter();
 
   @HostBinding('class.dnd-hover') hover = false;
 
@@ -54,11 +62,11 @@ export class DragAndDropDirective implements OnInit {
   processFiles(files: FileList) {
 
     const droppedFiles: Array<File> = [];
-    const skippedFiles: Array<File> = [];
+    const ignoredFiles: Array<File> = [];
 
     Array.from(files).forEach((file: File) => {
       const extension = file.name.split('.')[file.name.split('.').length - 1];
-      (this.extensions && this.extensions.indexOf(extension) !== -1) ? skippedFiles.push(file) : droppedFiles.push(file);
+      (this.extensions && this.extensions.indexOf(extension) === -1) ? ignoredFiles.push(file) : droppedFiles.push(file);
     });
 
     if (droppedFiles.length) {
@@ -78,8 +86,8 @@ export class DragAndDropDirective implements OnInit {
       }
     }
 
-    if (skippedFiles.length) {
-      this.filesSkipped.emit(skippedFiles);
+    if (ignoredFiles.length) {
+      this.filesIgnored.emit(ignoredFiles);
     }
 
   }

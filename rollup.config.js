@@ -1,6 +1,6 @@
 import resolve from 'rollup-plugin-node-resolve';
 import sourcemaps from 'rollup-plugin-sourcemaps';
-
+import commonjs from 'rollup-plugin-commonjs';
 /**
  * Add here external dependencies that actually you use.
  *
@@ -46,12 +46,44 @@ const globals = {
     '@angular/common': 'ng.common',
     '@angular/material': 'ng.material',
     'rxjs/Observable': 'Rx',
-    'rxjs/Observer': 'Rx'
-};
+    'rxjs/Observer': 'Rx',
+    'rxjs/Subject' : 'Rx',
+    'rxjs/Subscription' : 'Rx',
+    // rxjs/observable
+    'rxjs/observable/of': 'Rx.Observable',
+    'rxjs/observable/throw': 'Rx.Observable',
+    'rxjs/observable/defer': 'Rx.Observable',
+    'rxjs/observable/merge': 'Rx.Observable',
+    'rxjs/observable/forkJoin': 'Rx.Observable',
+    'rxjs/observable/fromEvent': 'Rx.Observable',
+    'rxjs/observable/fromPromise': 'Rx.Observable',
+    'rxjs/observable/combineLatest': 'Rx.Observable',
+    'rxjs/observable/fromEventPattern': 'Rx.Observable',
+    // rxjs/operator
+    'rxjs/operator/map': 'Rx.Observable.prototype',
+    'rxjs/operators/map': 'Rx.Observable.prototype',
+    'rxjs/operator/filter': 'Rx.Observable.prototype',
+    'rxjs/operator/concatMap': 'Rx.Observable.prototype',
+    // rxjs/operators
+    'rxjs/operators/tap': 'Rx.Observable.prototype',
+    'rxjs/operators/take': 'Rx.Observable.prototype',
+    'rxjs/operators/share': 'Rx.Observable.prototype',
+    'rxjs/operators/filter': 'Rx.Observable.prototype',
+    'rxjs/operators/finalize': 'Rx.Observable.prototype',
+    'rxjs/operators/auditTime': 'Rx.Observable.prototype',
+    'rxjs/operators/startWith': 'Rx.Observable.prototype',
+    'rxjs/operators/takeUntil': 'Rx.Observable.prototype',
+    'rxjs/operators/catchError': 'Rx.Observable.prototype',
+    'rxjs/operators/debounceTime': 'Rx.Observable.prototype'
+  };
 
 export default {
     external: Object.keys(globals),
-    plugins: [resolve(), sourcemaps()],
+    plugins: [
+      resolve(),
+      sourcemaps(),
+      commonjs()
+    ],
     onwarn: () => { return },
     output: {
         format: 'umd',
