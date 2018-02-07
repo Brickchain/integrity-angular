@@ -9,8 +9,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
     <p>{{ data.message }}</p>
   </mat-dialog-content>
   <mat-dialog-actions>
-    <button mat-raised-button [mat-dialog-close]="true" color="accent">{{ data.yes || "Yes" }}</button>
     <button mat-raised-button [mat-dialog-close]="false">{{ data.no || "No" }}</button>
+    <button mat-raised-button [mat-dialog-close]="true" color="accent">{{ data.yes || "Yes" }}</button>
   </mat-dialog-actions>
 `})
 export class ConfirmDialogComponent {
