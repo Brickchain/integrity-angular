@@ -5,14 +5,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'integrity-qrcode-dialog',
   template: `
-  <h2 mat-dialog-title>{{ data.title || "QR Code" }}</h2>
-  <div mat-dialog-content>
+  <h2 mat-dialog-title *ngIf="data.title">{{ data.title }}</h2>
+  <mat-dialog-content>
     <integrity-qrcode
       [qrdata]="data.qrdata"
       [integrityClipboard]="data.qrdata"
       (copySuccess)="showCopySuccess($event)">
     </integrity-qrcode>
-  </div>
+  </mat-dialog-content>
 `})
 export class QRCodeDialogComponent {
 

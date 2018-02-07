@@ -4,17 +4,17 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 @Component({
   selector: 'integrity-simple-input-dialog',
   template: `
-  <h2 mat-dialog-title>{{ data.title || "Enter value" }}</h2>
-  <div mat-dialog-content>
-    <p>{{ data.message }}</p>
+  <h2 mat-dialog-title *ngIf="data.title">{{ data.title }}</h2>
+  <mat-dialog-content>
+    <p *ngIf="data.message">{{ data.message }}</p>
     <mat-form-field>
-      <input matInput [(ngModel)]="data.value" cdkFocusInitial>
+      <input matInput [placeholder]="data.placeholder" [(ngModel)]="data.value" cdkFocusInitial>
     </mat-form-field>
-  </div>
-  <div mat-dialog-actions>
+  </mat-dialog-content>
+  <mat-dialog-actions>
     <button mat-raised-button [mat-dialog-close]="null">{{ data.cancel || "Cancel" }}</button>
     <button mat-raised-button [mat-dialog-close]="data.value" color="accent">{{ data.ok || "OK" }}</button>
-  </div>
+  </mat-dialog-actions>
 `})
 export class SimpleInputDialogComponent {
 
