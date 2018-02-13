@@ -12,7 +12,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
     </mat-form-field>
   </mat-dialog-content>
   <mat-dialog-actions>
-    <button mat-raised-button [mat-dialog-close]="null">{{ data.cancel || "Cancel" }}</button>
+    <button mat-button [mat-dialog-close]="null">{{ data.cancel || "Cancel" }}</button>
     <button mat-raised-button [mat-dialog-close]="data.value" color="accent">{{ data.ok || "OK" }}</button>
   </mat-dialog-actions>
 `})
