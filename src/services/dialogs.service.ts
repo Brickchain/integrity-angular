@@ -14,7 +14,7 @@ export class DialogsService {
     return this.dialog.open(QRCodeDialogComponent, { data: opts }).afterClosed().toPromise();
   }
 
-  public openConfirm(opts: { title?: string, message: string, yes?: string, no?: string }): Promise<boolean> {
+  public openConfirm(opts: { title?: string, message: string, ok?: string, cancel?: string }): Promise<boolean> {
     return this.dialog.open(ConfirmDialogComponent, { data: opts }).afterClosed().toPromise();
   }
 
