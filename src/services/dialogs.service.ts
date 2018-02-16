@@ -10,7 +10,7 @@ export class DialogsService {
 
   constructor(private dialog: MatDialog) { }
 
-  public openQRCode(opts: { title?: string, qrdata: string }): Promise<void> {
+  public openQRCode(opts: { title?: string, qrdata: string, copySuccessMessage?: string }): Promise<void> {
     return this.dialog.open(QRCodeDialogComponent, { data: opts }).afterClosed().toPromise();
   }
 

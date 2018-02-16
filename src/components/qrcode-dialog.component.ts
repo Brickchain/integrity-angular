@@ -21,7 +21,10 @@ export class QRCodeDialogComponent {
   }
 
   showCopySuccess(value: string) {
-    this.snackBar.open(`Copied ${value} to clipboard`, '', { duration: 2000 });
+    this.snackBar.open(
+      this.data.copySuccessMessage ? this.data.copySuccessMessage : `Copied '${value}' to clipboard`, '',
+      { duration: 2000 }
+    );
   }
 
 }
