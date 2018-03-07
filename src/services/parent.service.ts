@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ParentService {
 
-  private _referer: string = '';
+  private _referer = '';
   private _listener: Function | undefined;
 
   private resolvers: { [id: string]: Function; } = {};
@@ -11,7 +11,7 @@ export class ParentService {
   private timers: { [id: string]: any; } = [];
 
   constructor() {
-    window.addEventListener('message', (event) => this.receiveMessage(event.data), false);
+    window.addEventListener('message', (event) => this.receive(event.data), false);
   }
 
   set referer(value: string) {
@@ -30,8 +30,7 @@ export class ParentService {
     return this._listener;
   }
 
-  public sendMessage(message: any, timeout: number = 0): Promise<any> {
-    console.log(`${this.constructor.name}.sendMessage -> ${this.referer}`, message);
+  public postMessage(message: any, timeout: number = 0): Promise<any> {
     return new Promise((resolve, reject) => {
       if (typeof (message) === 'object') {
         const id = Math.random().toString(36).substring(2);
@@ -41,7 +40,7 @@ export class ParentService {
           const timeoutMessage: any = {};
           timeoutMessage['@correlationId'] = id;
           timeoutMessage['error'] = 'timeout';
-          this.timers[id] = setTimeout(() => this.receiveMessage(timeoutMessage), timeout);
+          this.timers[id] = setTimeout(() => this.receive(timeoutMessage), timeout);
         }
         message['@correlationId'] = id;
         window.parent.postMessage(message, this.referer);
@@ -52,8 +51,7 @@ export class ParentService {
     });
   }
 
-  private receiveMessage(message: any) {
-    console.log(`${this.constructor.name}.receiveMessage <- ${this.referer}`, message);
+  private receive(message: any) {
     const id = message['@correlationId'];
     if (id) {
       if (this.timers[id]) {
