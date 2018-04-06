@@ -13,7 +13,7 @@ export { ParentService } from './services/parent.service';
 
 export { ClipboardModule } from './modules/clipboard.module';
 export { DragAndDropModule } from './modules/drag-and-drop.module';
-export { EventsModule } from './modules/events.module.';
+export { EventsModule } from './modules/events.module';
 export { QRCodeModule } from './modules/qrcode.module';
 export { DialogsModule } from './modules/dialogs.module';
 export { ParentModule } from './modules/parent.module';
