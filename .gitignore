@@ -1,6 +1,7 @@
 $ cat .gitignore
 /node_modules
 /dist
+/dist-demo
 /documentation
 /coverage
 
