@@ -19,7 +19,7 @@ export class QRCodeComponent implements OnChanges, OnInit {
   }
 
   public ngOnChanges(changes: SimpleChanges) {
-    if ('qrdata' in changes) {
+    if ('qrdata' in changes || 'level' in changes) {
       this.renderSVG();
     }
   }

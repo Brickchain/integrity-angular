@@ -1,0 +1,54 @@
+<integrity-section title="Definition and Usage">
+  The &lt;integrity-qrcode&gt; defines a QR code in an HTML page. The QR code is rendered as an SVG image.
+</integrity-section>
+
+<integrity-section title="Example">
+  &lt;integrity-qrcode qrdata="Hello World" level="M"&gt;&lt;/integrity-qrcode&gt;
+</integrity-section>
+
+<integrity-section title="Attributes">
+
+  <table>
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Required</th>
+        <th>Value</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>qrdata</td>
+        <td>yes</td>
+        <td>text</td>
+        <td>Text contents of the rendered QR code</td>
+      </tr>
+      <tr>
+        <td>level</td>
+        <td>no</td>
+        <td>text</td>
+        <td>Error correction level. One of L, M, Q, H. Default M.</td>
+      </tr>
+    </tbody>
+  </table>
+</integrity-section>
+
+<integrity-section title="Demo">
+
+  <form>
+    <mat-form-field>
+      <input [(ngModel)]="data" matInput name="data" placeholder="QR Code Value">
+    </mat-form-field>
+
+    <mat-select [(ngModel)]="level" placeholder="Error Correction Level" name="level">
+      <mat-option value="M">M</mat-option>
+      <mat-option value="L">L</mat-option>
+      <mat-option value="Q">Q</mat-option>
+      <mat-option value="H">H</mat-option>
+    </mat-select>
+  </form>
+
+  <integrity-qrcode [qrdata]="data" [level]="level"></integrity-qrcode>
+
+</integrity-section>

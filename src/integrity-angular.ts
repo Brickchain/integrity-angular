@@ -17,3 +17,5 @@ export { EventsModule } from './modules/events.module';
 export { QRCodeModule } from './modules/qrcode.module';
 export { DialogsModule } from './modules/dialogs.module';
 export { ParentModule } from './modules/parent.module';
+
+export { SectionModule } from './modules/section.module';
