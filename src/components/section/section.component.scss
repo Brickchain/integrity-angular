@@ -1,0 +1,62 @@
+@import "~@brickchain/integrity-theme/material-theme";
+
+.integrity-section {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+
+  .integrity-section-title {
+    vertical-align: bottom;
+    width: 210px;
+    margin-right: 10px;
+    color: mat-color($integrity-primary);
+    user-select: none;
+
+    .mat-icon {
+      display: none;
+      vertical-align: middle;
+      line-height: 24px;
+      font-size: 20px;
+    }
+  }
+
+  .integrity-section-content {
+    padding: 15px 15px 15px 25px;
+    background-color: mat-color($integrity-light-grey);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &.collapsible {
+    .integrity-section-title {
+      color: mat-color($integrity-accent);
+      cursor: pointer;
+
+      .mat-icon {
+        display: inline;
+      }
+    }
+  }
+
+  &.collapsed {
+    margin-bottom: 10px;
+
+    .integrity-section-content {
+      color: mat-color($integrity-warn);
+      height: 0;
+      padding: 0;
+      overflow: hidden;
+      transition: height .35s;
+    }
+  }
+}
+
+@media only screen and (min-width: 830px) {
+  .integrity-section {
+    flex-direction: row;
+    width: 830px;
+  }
+
+  .integrity-section-content {
+    width: 570px;
+  }
+}
