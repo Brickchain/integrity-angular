@@ -1,27 +1,35 @@
-import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { Component, HostBinding, Input, OnInit, OnDestroy } from '@angular/core';
+import { CdkAccordionItem } from '@angular/cdk/accordion';
+import { matExpansionAnimations, MatExpansionPanelState } from '@angular/material';
 
 @Component({
   selector: 'integrity-section',
   templateUrl: './section.component.html',
-  styleUrls: ['./section.component.scss']
+  styleUrls: ['./section.component.scss'],
+  animations: [matExpansionAnimations.bodyExpansion]
 })
-export class SectionComponent implements OnInit {
+export class SectionComponent extends CdkAccordionItem implements OnInit, OnDestroy {
 
+  @Input() public enableExpansion = false;
   @Input() public title = '';
-  @Input() public collapsible = false;
-  @Input() public cid = '';
+  @Input() public expansionId = '';
 
-  public collapsed = false;
-
-  constructor() { }
+  subscription: any;
 
   ngOnInit() {
-    console.log(this.title, this.cid, this.collapsible);
+    this.open();
+    if (this.enableExpansion && this.expansionId && localStorage.getItem(this.expansionId) === 'false') {
+      this.close();
+    }
+    this.subscription = this.expandedChange.subscribe((expanded: boolean) => {
+      if (this.enableExpansion && this.expansionId) {
+        localStorage.setItem(this.expansionId, String(expanded));
+      }
+    });
   }
 
-  toggle() {
-    this.collapsed = !this.collapsed;
-    console.log(this.collapsed);
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }

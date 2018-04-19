@@ -1,56 +1,21 @@
+<mat-toolbar class="integrity-background-color">
+  <mat-toolbar-row>
+    <mat-icon *ngIf="drawerMode == 'over'" class="menu-icon" (click)="drawer.toggle()">{{ drawer.opened ? 'close' : 'menu' }}</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
+
 <mat-sidenav-container class="integrity-background-color">
 
-  <mat-sidenav #drawer class="integrity-background-color" mode="side" opened="true">
-
+  <mat-sidenav #drawer class="integrity-background-color" [mode]="drawerMode" [opened]="drawerMode == 'side'">
     <mat-nav-list>
-
       <a mat-list-item routerLink="/typography" routerLinkActive="active">Typography</a>
-
+      <a mat-list-item routerLink="/section" routerLinkActive="active">Section</a>
       <a mat-list-item routerLink="/qr-code-demo" routerLinkActive="active">QR Code</a>
-
     </mat-nav-list>
-
   </mat-sidenav>
 
   <mat-sidenav-content>
-
     <router-outlet></router-outlet>
-<!--
-    <integrity-section title="Event Demo">
-      <button mat-button (click)="events.publish('demo','hello!')">Click me!</button>
-    </integrity-section>
-
-    <integrity-section title="Section Title">
-      Section Content
-    </integrity-section>
-
-    <integrity-section title="Lorem Ipsum">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dictum, lorem a dapibus bibendum, leo nibh ultricies erat, sodales
-        viverra dui lorem at tellus. Pellentesque lobortis, mi nec faucibus gravida, risus neque ultricies tellus, id tempor
-        libero dolor et magna. Curabitur et vehicula augue. Proin at libero ac tortor bibendum accumsan. Morbi ullamcorper
-        pretium enim vel suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-        Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur condimentum laoreet turpis quis auctor. Aliquam
-        quis purus lobortis, aliquet justo quis, laoreet massa. Vivamus at urna justo. Mauris lorem odio, porttitor vitae
-        dolor nec, rhoncus porta nisi. Aenean a efficitur felis, eu fermentum eros. Pellentesque molestie massa in diam imperdiet
-        dapibus. Ut non malesuada tellus. Pellentesque eu metus id diam convallis ullamcorper.
-      </p>
-      <p>
-        Nullam luctus purus vitae nibh fermentum, ac tincidunt urna vulputate. Quisque vitae luctus ante. Integer vestibulum diam
-        sit amet lorem hendrerit, eget tincidunt ipsum fermentum. Quisque nec pellentesque nisl. Suspendisse ac consectetur
-        nisi. Fusce pretium, nibh at dictum tempus, elit massa porttitor mi, vel lacinia dolor lectus quis sem. Curabitur
-        et felis eu odio pellentesque porttitor. Maecenas mollis sit amet augue non rutrum. Sed vel vehicula sapien. Morbi
-        auctor laoreet feugiat. Vestibulum venenatis felis mauris, ac ornare felis euismod vel.
-      </p>
-      <p>
-        Sed ac elementum sem. Aliquam erat volutpat. Proin eu eros sed nisi sodales fermentum at eu quam. Vivamus fermentum arcu
-        eget risus porttitor, sit amet pulvinar odio cursus. Phasellus placerat risus turpis, sed ultricies nibh cursus nec.
-        Aenean nec arcu nisi. Etiam dictum ligula nec eros finibus, vitae eleifend purus dictum. Quisque sit amet lectus
-        quis eros mattis eleifend. Curabitur pulvinar mi at ipsum mollis, at auctor augue egestas. Fusce sit amet magna justo.
-        Etiam dictum vitae turpis in blandit. Praesent mollis a mi a pretium.
-      </p>
-    </integrity-section>
-  -->
   </mat-sidenav-content>
 
 </mat-sidenav-container>

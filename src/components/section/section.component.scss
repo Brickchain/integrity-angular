@@ -1,62 +1,82 @@
 @import "~@brickchain/integrity-theme/material-theme";
 
 .integrity-section {
-  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
+  border-bottom: 1px solid mat-color($integrity-grey90);
+  padding: 15px 30px 15px 30px;
 
   .integrity-section-title {
     vertical-align: bottom;
-    width: 210px;
-    margin-right: 10px;
     color: mat-color($integrity-primary);
     user-select: none;
+    margin-bottom: 10px;
 
     .mat-icon {
-      display: none;
       vertical-align: middle;
+      display: inline-block;
+      visibility: hidden;
       line-height: 24px;
       font-size: 20px;
+      transform: rotate(0deg);
+      transition: transform 0.225s;
     }
   }
 
   .integrity-section-content {
-    padding: 15px 15px 15px 25px;
-    background-color: mat-color($integrity-light-grey);
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    //background-color: mat-color($integrity-light-grey);
+    //box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.225s;
   }
 
-  &.collapsible {
+  &.canExpand {
     .integrity-section-title {
+      margin-bottom: 0;
       color: mat-color($integrity-accent);
       cursor: pointer;
 
       .mat-icon {
-        display: inline;
+        visibility: visible;
       }
     }
   }
 
-  &.collapsed {
-    margin-bottom: 10px;
+  &.expanded {
+    .integrity-section-title {
+      margin-bottom: 10px;
+
+      .mat-icon {
+        transform: rotate(90deg);
+      }
+    }
 
     .integrity-section-content {
-      color: mat-color($integrity-warn);
-      height: 0;
-      padding: 0;
-      overflow: hidden;
-      transition: height .35s;
+      opacity: 1;
     }
   }
 }
 
-@media only screen and (min-width: 830px) {
+:host:last-of-type {
+  .integrity-section {
+    margin-bottom: 0px;
+    border-bottom: none;
+  }
+}
+
+@media only screen and (min-width: 850px) {
   .integrity-section {
     flex-direction: row;
-    width: 830px;
-  }
 
-  .integrity-section-content {
-    width: 570px;
+    .integrity-section-title {
+      margin-right: 10px;
+      margin-bottom: 0 !important;
+      flex: 0 0 210px;
+    }
+
+    .integrity-section-content {
+      flex: 1 1 auto;
+    }
   }
 }

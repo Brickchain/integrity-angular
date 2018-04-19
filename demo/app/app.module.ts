@@ -11,7 +11,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatInputModule } from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,13 +27,15 @@ import { SectionModule } from '../../src/modules/section.module';
 import { TypographyComponent } from './typography/typography.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { QRCodeDemoComponent } from './qr-code-demo/qr-code-demo.component';
+import { SectionDemoComponent } from './section-demo/section-demo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
     TypographyComponent,
-    QRCodeDemoComponent
+    QRCodeDemoComponent,
+    SectionDemoComponent
   ],
   entryComponents: [],
   imports: [
@@ -49,6 +52,7 @@ import { QRCodeDemoComponent } from './qr-code-demo/qr-code-demo.component';
     MatExpansionModule,
     MatInputModule,
     MatSelectModule,
+    MatCardModule,
     ClipboardModule,
     DialogsModule,
     DragAndDropModule,

@@ -1,5 +1,5 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
-import { EventsService } from './../../src/services/events.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'integrity-angular-demo',
@@ -8,8 +8,13 @@ import { EventsService } from './../../src/services/events.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(public events: EventsService) {
-    this.events.subscribe('demo', (event: any) => console.log(event));
+  public drawerMode: string;
+
+  constructor(private breakpointObserver: BreakpointObserver) {
+    this.drawerMode = 'side';
+    breakpointObserver.observe(['(max-width: 1170px)']).subscribe(result => {
+      this.drawerMode = result.matches ? 'over' : 'side';
+    });
   }
 
   ngOnInit(): void {
