@@ -1,0 +1,26 @@
+<integrity-section title="Install Angular Material">
+  To use the Integrity theme and components you must first install the Material Design components for Angular. Just follow
+  these
+  <a href="https://material.angular.io/guide/getting-started">installation instructions</a>.
+</integrity-section>
+<integrity-section title="Install Required Libs">
+  <pre>npm install --save @brickchain/integrity-theme</pre>
+  <pre>npm install --save @brickchain/integrity-angular</pre>
+</integrity-section>
+<integrity-section title="Import Modules">
+  Import the NgModule for each component you want to use:
+  <pre>
+import {{ '{' }}...{{ '}' }} from '@brickchain/integrity';
+
+@NgModule({{ '{' }}
+  ...
+  imports: [...],
+  ...
+{{ '}' }})
+export class ControllerAppModule {{ '{' }} {{ '}' }}
+  </pre>
+</integrity-section>
+
+<integrity-section title="Add the Theme">
+  Import ~@brickchain/integrity-theme/material-theme in your global stylesheet.
+</integrity-section>

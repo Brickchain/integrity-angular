@@ -1,16 +1,33 @@
-<p class="mat-display-4">display-4</p>
-<p class="mat-display-3">display-3</p>
-<p class="mat-display-2">display-2</p>
-<p class="mat-display-1">display-1</p>
-
-<h1>&lt;h1&gt; - headline </h1>
-<h2>&lt;h2&gt; - title </h2>
-
-<h3>&lt;h3&gt; - subheading-2</h3>
-<h4>&lt;h4&gt; - subheading-1</h4>
-
-<p class="mat-body-2">body-2</p>
-<p class="mat-body-1">body-1</p>
-<p class="mat-caption">caption</p>
-<p class="mat-button">button</p>
-<p class="mat-input">input</p>
+<integrity-section title="Usage">
+  To use simply apply the right class to the content. Note that h1 uses the headline class, h2 uses title class, h3 uses the subheading-2 class, and h4 uses the subheading-1 class.
+</integrity-section>
+<integrity-section title="Example">
+  <pre>&lt;p class="mat-display-4"&gt;Hello World&lt;/p&gt;</pre>
+  <p class="mat-display-4">Hello World</p>
+</integrity-section>
+<mat-divider></mat-divider>
+<integrity-section *ngFor="let style of ['display-4','display-3','display-2','headline','title','subheading-2','subheading-1','body-2','body-1','caption','button','input']"
+  title="mat-{{style}}">
+  <mat-card>
+    <mat-card-content>
+      <p class="mat-{{style}}">{{style}}</p>
+    </mat-card-content>
+  </mat-card>
+</integrity-section>
+<mat-divider></mat-divider>
+<integrity-section title="Details">
+  <pre>$font-family: "'Source Sans Pro', sans-serif",
+$display-4: mat-typography-level(112px, 112px, 300),
+$display-3: mat-typography-level(56px, 56px, 400),
+$display-2: mat-typography-level(45px, 48px, 400),
+$display-1: mat-typography-level(34px, 40px, 400),
+$headline: mat-typography-level(24px, 32px, 400),     // h1
+$title: mat-typography-level(20px, 25px, 600),        // h2
+$subheading-2: mat-typography-level(16px, 24px, 400), // h3
+$subheading-1: mat-typography-level(15px, 22px, 400), // h4
+$body-2: mat-typography-level(14px, 24px, 600),
+$body-1: mat-typography-level(14px, 20px, 400),
+$caption: mat-typography-level(12px, 15px, 400),
+$button: mat-typography-level(14px, 18px, 600),
+$input: mat-typography-level(14px, 1.428, 400)</pre>
+</integrity-section>

@@ -1,7 +1,6 @@
 <div class="integrity-section" [class.canExpand]="enableExpansion" [class.expanded]="expanded || (expandedChange | async)">
   <div class="mat-subheading-2 integrity-section-title" (click)="enableExpansion ? toggle() : false">
-    <mat-icon>chevron_right</mat-icon>
-    {{ title }}
+    <mat-icon>chevron_right</mat-icon>{{ title }}
   </div>
   <div class="integrity-section-content" [@bodyExpansion]="expanded ? 'expanded' : 'collapsed'">
     <ng-content></ng-content>

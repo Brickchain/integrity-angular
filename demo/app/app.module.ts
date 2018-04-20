@@ -28,6 +28,12 @@ import { TypographyComponent } from './typography/typography.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { QRCodeDemoComponent } from './qr-code-demo/qr-code-demo.component';
 import { SectionDemoComponent } from './section-demo/section-demo.component';
+import { GetStartedComponent } from './get-started/get-started.component';
+import { ConfirmDialogDemoComponent } from './confirm-dialog-demo/confirm-dialog-demo.component';
+import { SimpleInputDialogDemoComponent } from './simple-input-dialog-demo/simple-input-dialog-demo.component';
+import { QrCodeDialogDemoComponent } from './qr-code-dialog-demo/qr-code-dialog-demo.component';
+import { ClipboardDemoComponent } from './clipboard-demo/clipboard-demo.component';
+import { DragAndDropDemoComponent } from './drag-and-drop-demo/drag-and-drop-demo.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +41,13 @@ import { SectionDemoComponent } from './section-demo/section-demo.component';
     PageNotFoundComponent,
     TypographyComponent,
     QRCodeDemoComponent,
-    SectionDemoComponent
+    SectionDemoComponent,
+    GetStartedComponent,
+    ConfirmDialogDemoComponent,
+    SimpleInputDialogDemoComponent,
+    QrCodeDialogDemoComponent,
+    ClipboardDemoComponent,
+    DragAndDropDemoComponent
   ],
   entryComponents: [],
   imports: [
