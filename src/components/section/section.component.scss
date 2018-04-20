@@ -3,7 +3,6 @@
 .integrity-section {
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid mat-color($integrity-grey90);
   padding: 15px 30px 15px 30px;
 
   .integrity-section-title {
@@ -24,8 +23,6 @@
   }
 
   .integrity-section-content {
-    //background-color: mat-color($integrity-light-grey);
-    //box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
     overflow: hidden;
     opacity: 0;
     transition: opacity 0.225s;
@@ -55,13 +52,6 @@
     .integrity-section-content {
       opacity: 1;
     }
-  }
-}
-
-:host:last-of-type {
-  .integrity-section {
-    margin-bottom: 0px;
-    border-bottom: none;
   }
 }
 
