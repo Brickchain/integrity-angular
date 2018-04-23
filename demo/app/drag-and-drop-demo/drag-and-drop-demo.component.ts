@@ -11,4 +11,12 @@ export class DragAndDropDemoComponent implements OnInit {
   ngOnInit() {
   }
 
+  showDroppedFiles(files: any) {
+    console.log(files);
+  }
+
+  showIgnoredFiles(files: any) {
+    console.log(files);
+  }
+
 }

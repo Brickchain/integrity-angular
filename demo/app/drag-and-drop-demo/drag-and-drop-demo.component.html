@@ -1,3 +1,61 @@
-<p>
-  drag-and-drop-demo works!
-</p>
+<integrity-section title="Definition and Usage">
+  <p>The integrityDragAndDrop is an attribute directive that makes any DOM element a receiver of dropped files.</p>
+  <p>A list of extensions accepted can be specified using the extensions attribute.</p>
+  <p>If the includeDataURL attribute is set to true, the file objects will also have a dataURL that contains their contents.</p>
+  <p>There are also emitter attributes for files dropped and files ignored.</p>
+</integrity-section>
+
+<integrity-section title="Example">
+  <pre>&lt;div
+  integrityDragAndDrop
+  [extensions]="['png', 'jpg', 'gif', 'svg']"
+  [includeDataURL]="false"
+  (droppedFiles)="showDroppedFiles($event)"
+  (ignoredFiles)="showIgnoredFiles($event)"&gt;Drop files here!&lt;/div&gt;</pre>
+</integrity-section>
+
+<integrity-section title="Attributes">
+  <table>
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Binding</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>integrityClipboard</td>
+        <td>Selector</td>
+        <td>Indicates that DOM element can have files dropped on it.</td>
+      </tr>
+      <tr>
+        <td>extensions</td>
+        <td>Input</td>
+        <td>Array of file extensions to accept</td>
+      </tr>
+      <tr>
+        <td>includeDataURL</td>
+        <td>Input</td>
+        <td>Indicate if the files should have their contents loaded into a dataURL property</td>
+      </tr>
+      <tr>
+        <td>droppedFiles</td>
+        <td>Output</td>
+        <td>Callback that receives dropped files with the right extension.</td>
+      </tr>
+      <tr>
+        <td>ignoredFiles</td>
+        <td>Output</td>
+        <td>Callback that receives dropped files that are ignored (wrong extension).</td>
+      </tr>
+    </tbody>
+  </table>
+</integrity-section>
+
+<integrity-section title="Demo">
+  <div integrityDragAndDrop [extensions]="['png', 'jpg', 'gif', 'svg']" (droppedFiles)="showDroppedFiles($event)" (ignoredFiles)="showIgnoredFiles($event)">
+    Drop files here!
+    <input type="file" />
+  </div>
+</integrity-section>
