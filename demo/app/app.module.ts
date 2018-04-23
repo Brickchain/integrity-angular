@@ -29,11 +29,11 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { QRCodeDemoComponent } from './qr-code-demo/qr-code-demo.component';
 import { SectionDemoComponent } from './section-demo/section-demo.component';
 import { GetStartedComponent } from './get-started/get-started.component';
-import { ConfirmDialogDemoComponent } from './confirm-dialog-demo/confirm-dialog-demo.component';
-import { SimpleInputDialogDemoComponent } from './simple-input-dialog-demo/simple-input-dialog-demo.component';
-import { QrCodeDialogDemoComponent } from './qr-code-dialog-demo/qr-code-dialog-demo.component';
 import { ClipboardDemoComponent } from './clipboard-demo/clipboard-demo.component';
 import { DragAndDropDemoComponent } from './drag-and-drop-demo/drag-and-drop-demo.component';
+import { DialogsServiceDemoComponent } from './dialogs-service-demo/dialogs-service-demo.component';
+import { EventsServiceDemoComponent } from './events-service-demo/events-service-demo.component';
+import { ParentServiceDemoComponent } from './parent-service-demo/parent-service-demo.component';
 
 @NgModule({
   declarations: [
@@ -43,11 +43,11 @@ import { DragAndDropDemoComponent } from './drag-and-drop-demo/drag-and-drop-dem
     QRCodeDemoComponent,
     SectionDemoComponent,
     GetStartedComponent,
-    ConfirmDialogDemoComponent,
-    SimpleInputDialogDemoComponent,
-    QrCodeDialogDemoComponent,
     ClipboardDemoComponent,
-    DragAndDropDemoComponent
+    DragAndDropDemoComponent,
+    DialogsServiceDemoComponent,
+    EventsServiceDemoComponent,
+    ParentServiceDemoComponent
   ],
   entryComponents: [],
   imports: [

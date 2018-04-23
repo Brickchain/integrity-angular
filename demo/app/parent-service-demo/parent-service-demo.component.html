@@ -1,0 +1,37 @@
+<integrity-section title="Definition and Usage">
+    <p>The ParentService is a utility that allows the admin UI for a controller to call handlers in the realm admin UI.</p>
+    <p>To use the service start by importing the importing the parent module in the app module.</p>
+    <pre>import {{ '{' }}ParentModule{{ '}' }} from '@brickchain/integrity-angular';
+  
+    @NgModule({{ '{' }}
+      ...
+      imports: [ParentModule],
+      ...
+    {{ '}' }})
+    export class ControllerAppModule {{ '{' }} {{ '}' }}</pre>
+    <p>Next inject the service into the component that wants to use it.</p>
+    <pre>import {{ '{' }} Component {{ '}' }} from '@angular/core';
+  import {{ '{' }} ParentService {{ '}' }} from '@brickchain/integrity-angular';
+  
+  @Component(...)
+  export class EventsServiceDemoComponent {{ '{' }}
+  
+    constructor(private parent: ParentService) {{ '{' }} {{ '}' }}
+  
+  {{ '}' }}</pre>
+  </integrity-section>
+  
+  <mat-divider></mat-divider>
+  <integrity-section title="Example">
+<pre>
+updateActions() {{ '{' }}
+  this.hassClient.getDescriptors()
+    .then(actions => this.parent.postMessage({{ '{' }}
+      '@type': 'update-actions',
+      'actions': actions,
+    {{ '}' }}))
+    .then(() => this.notification.displayMessage('general.actions_updated', 'label.close'))
+    .catch(error => this.notification.displayError(error));
+{{ '}' }}
+</pre>
+  </integrity-section>

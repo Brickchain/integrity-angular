@@ -1,3 +1,46 @@
-<p>
-  clipboard-demo works!
-</p>
+<integrity-section title="Definition and Usage">
+  <p>The integrityClipboard is an attribute directive that makes any DOM element set a value in the OS clipboard upon click.</p>
+  <p>The value of the directive is what becomes stored in the clipboard.</p>
+  <p>There are also emitter attributes for success and error events upon click</p>
+</integrity-section>
+
+<integrity-section title="Example">
+  <pre>&lt;div
+  integrityClipboard="Hello World!"
+  (copySuccess)="showCopySuccess($event)"
+  (copyError)="showCopyError($event)"&gt;Click to copy!&lt;/div&gt;</pre>
+</integrity-section>
+
+<integrity-section title="Attributes">
+  <table>
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Binding</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>integrityClipboard</td>
+        <td>Input</td>
+        <td>Value to be stored in the clipboard</td>
+      </tr>
+      <tr>
+        <td>copySuccess</td>
+        <td>Output</td>
+        <td>Callback upon success. Receives the copied value as an arg.</td>
+      </tr>
+      <tr>
+        <td>copyError</td>
+        <td>Output</td>
+        <td>Callback upon error. Receives the error as an arg.</td>
+      </tr>
+    </tbody>
+  </table>
+</integrity-section>
+
+<integrity-section title="Demo">
+  <h2 *ngIf="copiedValue">'{{ copiedValue }}' copied to clipboard!</h2>
+  <div integrityClipboard="Hello World!" (copySuccess)="showCopySuccess($event)" (copyError)="showCopyError($event)">Click to copy!</div>
+</integrity-section>

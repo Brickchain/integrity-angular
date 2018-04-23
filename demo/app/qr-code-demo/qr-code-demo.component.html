@@ -10,7 +10,6 @@
 </integrity-section>
 
 <integrity-section title="Attributes">
-
   <table>
     <thead>
       <tr>
@@ -40,16 +39,20 @@
 <integrity-section title="Demo">
 
   <form>
+
     <mat-form-field>
       <input [(ngModel)]="data" matInput name="data" placeholder="QR Code Value">
     </mat-form-field>
 
-    <mat-select [(ngModel)]="level" placeholder="Error Correction Level" name="level">
-      <mat-option value="M">M</mat-option>
-      <mat-option value="L">L</mat-option>
-      <mat-option value="Q">Q</mat-option>
-      <mat-option value="H">H</mat-option>
-    </mat-select>
+    <mat-form-field>
+      <mat-select [(ngModel)]="level" placeholder="Error Correction Level" name="level">
+        <mat-option value="M">M</mat-option>
+        <mat-option value="L">L</mat-option>
+        <mat-option value="Q">Q</mat-option>
+        <mat-option value="H">H</mat-option>
+      </mat-select>
+    </mat-form-field>
+
   </form>
 
   <integrity-qrcode [qrdata]="data" [level]="level"></integrity-qrcode>

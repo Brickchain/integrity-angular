@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'integrity-angular-qr-code-demo',
-  templateUrl: './qr-code-demo.component.html',
-  styleUrls: ['./qr-code-demo.component.css']
+  templateUrl: './qr-code-demo.component.html'
 })
 export class QRCodeDemoComponent implements OnInit {
 

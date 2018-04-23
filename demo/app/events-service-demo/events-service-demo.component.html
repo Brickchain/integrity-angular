@@ -1,0 +1,61 @@
+<integrity-section title="Definition and Usage">
+  <p>The EventsService is a utility that provides a pub/sub topic mechanism for components.</p>
+  <p>To use the service start by importing the importing the events module in the app module.</p>
+  <pre>import {{ '{' }}EventsModule{{ '}' }} from '@brickchain/integrity-angular';
+
+  @NgModule({{ '{' }}
+    ...
+    imports: [EventsModule],
+    ...
+  {{ '}' }})
+  export class ControllerAppModule {{ '{' }} {{ '}' }}</pre>
+  <p>Next inject the service into the component that wants to use it.</p>
+  <pre>import {{ '{' }} Component {{ '}' }} from '@angular/core';
+import {{ '{' }} EventsService {{ '}' }} from '@brickchain/integrity-angular';
+
+@Component(...)
+export class EventsServiceDemoComponent {{ '{' }}
+
+  constructor(private events: EventsService) {{ '{' }} {{ '}' }}
+
+{{ '}' }}</pre>
+</integrity-section>
+
+<mat-divider></mat-divider>
+
+<integrity-section title="Subscribing">
+  <p>To subscribe simple call the subscribe function of the service. It takes the topic names as the first argument, followed
+    by a number of handler functions that receive messages on the topic.</p>
+  <p>Each handler function should only take a single argument which is the message received.</p>
+  <pre>this.handler = (message: any) => this.messages = this.messages + '\r\n' + this.message;
+this.events.subscribe('demo', this.handler);</pre>
+</integrity-section>
+
+<integrity-section title="Unsubscribing">
+  <p>To unsubscribe call the subscribe function of the service. . It takes the topic names as the first argument, followed by
+    a number of handler functions that receive messages on the topic.</p>
+  <pre>this.events.unsubscribe('demo', this.handler);</pre>
+</integrity-section>
+
+<integrity-section title="Sending messages">
+  <p>To send message call the publich function. It takes the topic name as the first argument, and the message to be passed as the second argument</p>
+  <pre>this.events.publish('demo', this.message);</pre>
+</integrity-section>
+
+<mat-divider></mat-divider>
+
+<integrity-section title="Demo">
+
+  <form>
+
+    <mat-form-field>
+      <input [(ngModel)]="message" matInput name="message" placeholder="Message">
+    </mat-form-field>
+
+    <button mat-raised-button color="accent" (click)="sendMessage()">Send</button>
+
+    <pre>{{ messages }}</pre>
+
+  </form>
+
+</integrity-section>

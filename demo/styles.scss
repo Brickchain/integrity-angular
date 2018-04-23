@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@brickchain/integrity-theme/material-theme";
 
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600,700");
+
 html {
   width: 100vw;
   overflow-x: hidden;
@@ -10,4 +12,28 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
+}
+
+table {
+  width: 100%;
+  background: mat-color($integrity-grey96);
+  border: 1px solid mat-color($integrity-grey62);
+  border-collapse: collapse;
+  margin-bottom: 12px;
+
+  th, td {
+    padding: 8px;
+    margin: 0;
+    border: 1px solid mat-color($integrity-grey90);
+    text-align: left;
+
+    &:first-of-type {
+      font-style: italic;
+    }
+  }
+}
+
+pre {
+  font-family: 'Source Code Pro', monospace;
+  color: #999;
 }

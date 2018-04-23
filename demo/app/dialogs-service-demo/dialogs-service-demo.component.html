@@ -1,0 +1,145 @@
+<integrity-section title="Definition and Usage">
+  <p>The DialogsService is a utility that lets you create simple dialogs and handle their results as promises. The service can
+    create Confirmation dialogs, Simple innput dialogs, and QR Code dialogs.</p>
+  <p>To use the service start by importing the importing the dialogs module in the app module.</p>
+  <pre>import {{ '{' }}DialogsModule{{ '}' }} from '@brickchain/integrity-angular';
+
+@NgModule({{ '{' }}
+  ...
+  imports: [DialogsModule],
+  ...
+{{ '}' }})
+export class ControllerAppModule {{ '{' }} {{ '}' }}</pre>
+  <p>Next inject the service into the component that wants to use it.</p>
+  <pre>import {{ '{' }} Component {{ '}' }} from '@angular/core';
+import {{ '{' }} DialogsService {{ '}' }} from '@brickchain/integrity-angular';
+
+@Component(...)
+export class DialogsServiceDemoComponent {{ '{' }}
+
+  constructor(private dialogs: DialogsService) {{ '{' }} {{ '}' }}
+
+  showDialog() {{ '{' }}
+    const options = {{ '{' }} ... {{ '}' }};
+    this.dialogs.openConfirm(options).then(...);
+  {{ '}' }}
+
+{{ '}' }}</pre>
+</integrity-section>
+
+<mat-divider></mat-divider>
+
+<integrity-section title="Confirmation Dialog">
+  <p>Displays a simple dialog with title, message and a confirm/cancel buttons for the user. The result is handled in a promise
+    indicated if the user confirmed or not.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Option</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>title</td>
+        <td>no</td>
+        <td>Dialog title</td>
+      </tr>
+      <tr>
+        <td>message</td>
+        <td>yes</td>
+        <td>Confirmation message</td>
+      </tr>
+      <tr>
+        <td>ok</td>
+        <td>no</td>
+        <td>Label on confirm button</td>
+      </tr>
+      <tr>
+        <td>cancel</td>
+        <td>no</td>
+        <td>Label on cancel button</td>
+      </tr>
+    </tbody>
+  </table>
+  <button mat-raised-button color="accent" (click)="showConfirmationDialog()">Confirmation Dialog</button>
+</integrity-section>
+
+<mat-divider></mat-divider>
+
+<integrity-section title="Simple Input Dialog">
+  <p>Displays a simple input dialog with title, message, input field and a ok/cancel buttons for the user. The input value is
+    handled as string a promise.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Option</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>title</td>
+        <td>no</td>
+        <td>Dialog title</td>
+      </tr>
+      <tr>
+        <td>message</td>
+        <td>yes</td>
+        <td>Confirmation message</td>
+      </tr>
+      <tr>
+        <td>value</td>
+        <td>no</td>
+        <td>Value of the input field</td>
+      </tr>
+      <tr>
+        <td>ok</td>
+        <td>no</td>
+        <td>Label on confirm button</td>
+      </tr>
+      <tr>
+        <td>cancel</td>
+        <td>no</td>
+        <td>Label on cancel button</td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 *ngIf="input">Hello {{ input }}!</h2>
+  <button mat-raised-button color="accent" (click)="showSimpleInputDialog()">Simple Input Dialog</button>
+</integrity-section>
+
+<mat-divider></mat-divider>
+
+<integrity-section title="QR Code Dialog">
+  <p>Displays a QR Code and lets the user copy it's value to the clipboard by clicking on it.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Option</th>
+        <th>Required</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>title</td>
+        <td>no</td>
+        <td>Dialog title</td>
+      </tr>
+      <tr>
+        <td>qrdata</td>
+        <td>yes</td>
+        <td>Contents of the QR code</td>
+      </tr>
+      <tr>
+        <td>copySuccessMessage</td>
+        <td>no</td>
+        <td>Message to display if user copies the value to the clipboard</td>
+      </tr>
+    </tbody>
+  </table>
+  <button mat-raised-button color="accent" (click)="showQRCodeDialog()">QR Code Dialog</button>
+</integrity-section>
