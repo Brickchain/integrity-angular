@@ -1,6 +1,6 @@
 {
   "name": "@brickchain/integrity-angular",
-  "version": "0.1.12",
+  "version": "0.2.0",
   "description": "Library to provide angular utilities and themes",
   "main": "./bundles/integrity-angular.umd.js",
   "module": "./modules/integrity-angular.es5.js",
@@ -34,7 +34,7 @@
   ],
   "license": "BSD-2-Clause",
   "dependencies": {
-    "tslib": "^1.7.1"
+    "tslib": "^1.9.0"
   },
   "peerDependencies": {
     "@angular/animations": ">= 5.2.0",
@@ -57,8 +57,8 @@
     "@angular/platform-browser-dynamic": "5.2.10",
     "@angular/platform-server": "5.2.10",
     "@angular/router": "5.2.10",
-    "@brickchain/integrity-theme": "^0.1.7",
-    "@compodoc/compodoc": "1.0.3",
+    "@brickchain/integrity-theme": "0.2.0",
+    "@compodoc/compodoc": "1.1.2",
     "@types/jasmine": "2.6.2",
     "@types/node": "8.0.47",
     "@types/qr-image": "3.2.1",
@@ -78,7 +78,7 @@
     "karma-webpack": "2.0.5",
     "qr-image": "3.2.0",
     "reflect-metadata": "0.1.10",
-    "rollup": "0.50.0",
+    "rollup": "0.57.1",
     "rollup-plugin-commonjs": "8.4.1",
     "rollup-plugin-license": "0.6.0",
     "rollup-plugin-node-resolve": "3.2.0",
