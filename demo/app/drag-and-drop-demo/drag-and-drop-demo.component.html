@@ -3,6 +3,11 @@
   <p>A list of extensions accepted can be specified using the extensions attribute.</p>
   <p>If the includeDataURL attribute is set to true, the file objects will also have a dataURL that contains their contents.</p>
   <p>There are also emitter attributes for files dropped and files ignored.</p>
+  <p>Tip: if you include an input of type file inside the DOM element, clicking on the element will open a file dialog.</p>
+</integrity-section>
+
+<integrity-section title="Styling">
+  <p>When hovering over the DOM element the directive will add the class dnd-hover to it.</p>
 </integrity-section>
 
 <integrity-section title="Example">
@@ -10,8 +15,11 @@
   integrityDragAndDrop
   [extensions]="['png', 'jpg', 'gif', 'svg']"
   [includeDataURL]="false"
-  (droppedFiles)="showDroppedFiles($event)"
-  (ignoredFiles)="showIgnoredFiles($event)"&gt;Drop files here!&lt;/div&gt;</pre>
+  (filesDropped)="showDroppedFiles($event)"
+  (filesIgnored)="showIgnoredFiles($event)"&gt;
+    Drop files here!
+    &lt;input type="file" /&gt;
+  &lt;/div&gt;</pre>
 </integrity-section>
 
 <integrity-section title="Attributes">
@@ -40,12 +48,12 @@
         <td>Indicate if the files should have their contents loaded into a dataURL property</td>
       </tr>
       <tr>
-        <td>droppedFiles</td>
+        <td>filesDropped</td>
         <td>Output</td>
         <td>Callback that receives dropped files with the right extension.</td>
       </tr>
       <tr>
-        <td>ignoredFiles</td>
+        <td>filesIgnored</td>
         <td>Output</td>
         <td>Callback that receives dropped files that are ignored (wrong extension).</td>
       </tr>
@@ -54,8 +62,26 @@
 </integrity-section>
 
 <integrity-section title="Demo">
-  <div integrityDragAndDrop [extensions]="['png', 'jpg', 'gif', 'svg']" (droppedFiles)="showDroppedFiles($event)" (ignoredFiles)="showIgnoredFiles($event)">
+  <p>Drag and drop files on the area below (accepted files are: 'png', 'jpg', 'gif', 'svg').</p>
+  <div class="dropzone" integrityDragAndDrop [extensions]="['png', 'jpg', 'gif', 'svg']" (filesDropped)="showDroppedFiles($event)"
+    (filesIgnored)="showIgnoredFiles($event)">
     Drop files here!
     <input type="file" />
+  </div>
+  <div *ngIf="droppedFiles.length">
+    <h3>Dropped Files</h3>
+    <ul>
+      <li *ngFor="let file of droppedFiles">
+        {{ file.name }} - {{ file.size }} - {{ file.lastModifiedDate }}
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="ignoredFiles.length">
+    <h3>Ignored Files</h3>
+    <ul>
+      <li *ngFor="let file of ignoredFiles">
+        {{ file.name }} - {{ file.size }} - {{ file.lastModifiedDate }}
+      </li>
+    </ul>
   </div>
 </integrity-section>

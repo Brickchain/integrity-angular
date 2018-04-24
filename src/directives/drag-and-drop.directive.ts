@@ -15,7 +15,7 @@ import {
 export class DragAndDropDirective implements OnInit {
 
   @Input() private includeDataURL: Boolean = false;
-  @Input() private extensions: Array<string>;
+  @Input() private extensions: Array<string> = [];
   @Output() private filesDropped: EventEmitter<File[]> = new EventEmitter();
   @Output() private filesIgnored: EventEmitter<File[]> = new EventEmitter();
 
@@ -66,29 +66,25 @@ export class DragAndDropDirective implements OnInit {
 
     Array.from(files).forEach((file: File) => {
       const extension = file.name.split('.')[file.name.split('.').length - 1];
-      (this.extensions && this.extensions.indexOf(extension) === -1) ? ignoredFiles.push(file) : droppedFiles.push(file);
+      (this.extensions.length && this.extensions.indexOf(extension) === -1) ? ignoredFiles.push(file) : droppedFiles.push(file);
     });
 
-    if (droppedFiles.length) {
-      if (this.includeDataURL) {
-        Promise.all(droppedFiles.map((file: File) => {
-          return new Promise<File>((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = () => {
-              (<any>file)['dataURL'] = reader.result;
-              resolve(file);
-            };
-            reader.readAsDataURL(file);
-          });
-        })).then((filesWithData: File[]) => this.filesDropped.emit(filesWithData));
-      } else {
-        this.filesDropped.emit(droppedFiles);
-      }
+    if (this.includeDataURL) {
+      Promise.all(droppedFiles.map((file: File) => {
+        return new Promise<File>((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => {
+            (<any>file)['dataURL'] = reader.result;
+            resolve(file);
+          };
+          reader.readAsDataURL(file);
+        });
+      })).then((filesWithData: File[]) => this.filesDropped.emit(filesWithData));
+    } else {
+      this.filesDropped.emit(droppedFiles);
     }
 
-    if (ignoredFiles.length) {
-      this.filesIgnored.emit(ignoredFiles);
-    }
+    this.filesIgnored.emit(ignoredFiles);
 
   }
 

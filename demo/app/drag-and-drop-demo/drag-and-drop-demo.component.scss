@@ -1,0 +1,25 @@
+.dropzone {
+  width: 100px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #eee;
+  border: 1px dotted black;
+  border-radius: 20px;
+  opacity: 0.5;
+  margin-bottom: 15px;
+
+  &.dnd-dropped {
+    border: 1px solid green;
+  }
+
+  &.dnd-hover {
+    opacity: 1;
+    border: 1px solid red;
+  }
+
+  input[type=file] {
+    display: none;
+  }
+}
