@@ -42,9 +42,12 @@ import commonjs from 'rollup-plugin-commonjs';
  *
  */
 const globals = {
+    '@angular/cdk': 'ng.cdk',
     '@angular/core': 'ng.core',
     '@angular/common': 'ng.common',
     '@angular/material': 'ng.material',
+    '@angular/animations': 'ng.animations',
+    '@angular/platform-browser': 'ng.platformBrowser',
     'rxjs/Observable': 'Rx',
     'rxjs/Observer': 'Rx',
     'rxjs/Subject' : 'Rx',
