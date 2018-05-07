@@ -14,11 +14,30 @@ export class DialogsService {
     return this.dialog.open(QRCodeDialogComponent, { data: opts }).afterClosed().toPromise();
   }
 
-  public openConfirm(opts: { title?: string, message: string, ok?: string, cancel?: string }): Promise<boolean> {
+  public openConfirm(opts: {
+    title?: string,
+    message: string,
+    ok?: string,
+    cancel?: string,
+    okColor?: string,
+    cancelColor?: string,
+    okIcon?: string,
+    cancelIcon?: string
+  }): Promise<boolean> {
     return this.dialog.open(ConfirmDialogComponent, { data: opts }).afterClosed().toPromise();
   }
 
-  public openSimpleInput(opts: { title?: string, message: string, value?: string, ok?: string, cancel?: string }): Promise<string | null> {
+  public openSimpleInput(opts: {
+    title?: string,
+    message: string,
+    value?: string,
+    ok?: string,
+    cancel?: string,
+    okColor?: string,
+    cancelColor?: string,
+    okIcon?: string,
+    cancelIcon?: string
+  }): Promise<string | null> {
     return this.dialog.open(SimpleInputDialogComponent, { data: opts }).afterClosed().toPromise();
   }
 

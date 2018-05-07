@@ -5,6 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon';
 import { QRCodeModule } from './qrcode.module';
 import { ClipboardModule } from './clipboard.module';
 import { QRCodeDialogComponent } from '../components/qrcode-dialog.component';
@@ -21,6 +22,7 @@ import { DialogsService } from '../services/dialogs.service';
     MatDialogModule,
     MatButtonModule,
     MatSnackBarModule,
+    MatIconModule,
     QRCodeModule,
     ClipboardModule
   ],

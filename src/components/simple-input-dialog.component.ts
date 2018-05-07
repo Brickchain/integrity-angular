@@ -12,8 +12,14 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
     </mat-form-field>
   </mat-dialog-content>
   <mat-dialog-actions>
-    <button mat-button [mat-dialog-close]="null">{{ data.cancel || "Cancel" }}</button>
-    <button mat-raised-button [mat-dialog-close]="data.value" color="accent">{{ data.ok || "OK" }}</button>
+    <button mat-button [mat-dialog-close]="null" [color]="data.cancelColor">
+      <mat-icon *ngIf="data.cancelIcon">{{ data.cancelIcon }}</mat-icon>
+      {{ data.cancel || "Cancel" }}
+    </button>
+    <button mat-raised-button [mat-dialog-close]="data.value" [color]="data.okColor">
+      <mat-icon *ngIf="data.okIcon">{{ data.okIcon }}</mat-icon>
+      {{ data.ok || "OK" }}
+    </button>
   </mat-dialog-actions>
 `})
 export class SimpleInputDialogComponent {

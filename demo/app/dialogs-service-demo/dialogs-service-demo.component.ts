@@ -19,6 +19,17 @@ export class DialogsServiceDemoComponent {
     this.dialogs.openConfirm(opts).then(confirmed => console.log(confirmed));
   }
 
+  showConfirmationDialogAltColor() {
+    const opts = {
+      'title': 'Confirmation Dialog',
+      'message': 'Delete stuff?',
+      'ok': 'Delete',
+      'okIcon': 'delete',
+      'okColor': 'warn'
+    };
+    this.dialogs.openConfirm(opts).then(confirmed => console.log(confirmed));
+  }
+
   showSimpleInputDialog() {
     const opts = {
       'title': 'Simple Input Dialog',
