@@ -17,6 +17,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     mat-dialog-content {
       text-align: center;
     }
+    integrity-qrcode {
+      cursor: copy;
+    }
   `]
 })
 export class QRCodeDialogComponent {
