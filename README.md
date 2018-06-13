@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Brickchain/integrity-angular.svg?branch=master)](https://travis-ci.org/PlusIntegrity/integrity-angular)
+[![Build Status](https://travis-ci.org/Brickchain/integrity-angular.svg?branch=master)](https://travis-ci.org/Brickchain/integrity-angular)
 
 # Integrity Angular
 
