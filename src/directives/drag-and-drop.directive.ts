@@ -31,6 +31,7 @@ export class DragAndDropDirective implements OnInit {
       input.onchange = (event: any) => this.processFiles(event.target.files);
       this.input = input;
     }
+    this.extensions = this.extensions.map(extension => extension.toLowerCase());
   }
 
   @HostListener('click', ['$event']) public onClick(event: any) {
@@ -65,7 +66,7 @@ export class DragAndDropDirective implements OnInit {
     const ignoredFiles: Array<File> = [];
 
     Array.from(files).forEach((file: File) => {
-      const extension = file.name.split('.')[file.name.split('.').length - 1];
+      const extension = file.name.split('.')[file.name.split('.').length - 1].toLowerCase();
       (this.extensions.length && this.extensions.indexOf(extension) === -1) ? ignoredFiles.push(file) : droppedFiles.push(file);
     });
 

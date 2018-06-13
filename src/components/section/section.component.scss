@@ -6,7 +6,6 @@
   padding: 15px 30px 15px 30px;
 
   .integrity-section-title {
- //   vertical-align: bottom;
     color: mat-color($integrity-primary);
     user-select: none;
     margin-bottom: 10px;
@@ -14,7 +13,7 @@
     .mat-icon {
       vertical-align: middle;
       display: inline-block;
-      visibility: hidden;
+      margin-left: -6px;
       transform: rotate(0deg);
       transition: transform 0.225s;
     }
@@ -31,10 +30,6 @@
       margin-bottom: 0;
       color: mat-color($integrity-accent);
       cursor: pointer;
-
-      .mat-icon {
-        visibility: visible;
-      }
     }
   }
 
@@ -76,10 +71,12 @@
       flex-direction: column;
       align-items: stretch;
       padding: 0 16px;
+
       .integrity-section-title {
         line-height: 48px;
         color: mat-contrast($integrity-grey, 200);
       }
+
       .integrity-section-title, .integrity-section-content {
         margin: 0;
         flex: 0 1 auto;

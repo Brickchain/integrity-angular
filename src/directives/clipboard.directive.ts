@@ -6,16 +6,20 @@ import { ClipboardService } from '../services/clipboard.service';
 })
 export class ClipboardDirective {
 
-  @Input() integrityClipboard: string;
+  @Input() integrityClipboard: string | undefined = undefined;
   @Output() copySuccess: EventEmitter<string> = new EventEmitter();
   @Output() copyError: EventEmitter<Error> = new EventEmitter();
 
   constructor(private clipboardService: ClipboardService) { }
 
   @HostListener('click') copyToClipboard(): void {
-    this.clipboardService.copy(this.integrityClipboard)
-      .then(value => this.copySuccess.emit(value))
-      .catch(error => this.copyError.emit(error));
+    if (this.integrityClipboard) {
+      this.clipboardService.copy(this.integrityClipboard)
+        .then(value => this.copySuccess.emit(value))
+        .catch(error => this.copyError.emit(error));
+    } else {
+      this.copyError.emit(undefined);
+    }
   }
 
 }

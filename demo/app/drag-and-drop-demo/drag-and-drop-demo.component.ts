@@ -17,12 +17,12 @@ export class DragAndDropDemoComponent implements OnInit {
 
   showDroppedFiles(files: Array<File>) {
     this.droppedFiles = files;
-    console.log(files);
+    console.log('dropped', files);
   }
 
   showIgnoredFiles(files: Array<File>) {
     this.ignoredFiles = files;
-    console.log(files);
+    console.log('ignored', files);
   }
 
 }
