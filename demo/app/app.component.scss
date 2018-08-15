@@ -1,3 +1,5 @@
+@import "~@brickchain/integrity-theme/theming";
+
 .mat-sidenav-container {
   max-width: 1170px;
   margin: 0 auto;
@@ -17,5 +19,33 @@
         margin: 4px 0;
       }
     }
+  }
+}
+
+::ng-deep {
+  mat-card, mat-table {
+    margin-top: 20px;
+  }
+
+  .mat-cell {
+    overflow: visible !important;
+  }
+
+  .owl-dt-popup-container {
+    top: 15px !important;
+    border-radius: 6px;
+  }
+
+  .owl-dt-calendar-table .owl-dt-calendar-cell-selected {
+    color: rgba(255, 255, 255, 0.85);
+    background-color: mat-color($integrity-accent);
+  }
+
+  .owl-dt-calendar-table .owl-dt-calendar-cell-today:not(.owl-dt-calendar-cell-selected) {
+    border-color: mat-color($integrity-primary);
+  }
+
+  .owl-dt-container-control-button {
+    color: mat-color($integrity-accent);
   }
 }

@@ -23,11 +23,13 @@ import { DragAndDropModule } from '../../src/modules/drag-and-drop.module';
 import { EventsModule } from '../../src/modules/events.module';
 import { QRCodeModule } from '../../src/modules/qrcode.module';
 import { SectionModule } from '../../src/modules/section.module';
+import { ScheduleModule } from '../../src/modules/schedule.module';
 
 import { TypographyComponent } from './typography/typography.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { QRCodeDemoComponent } from './qr-code-demo/qr-code-demo.component';
 import { SectionDemoComponent } from './section-demo/section-demo.component';
+import { ScheduleDemoComponent } from './schedule-demo/schedule-demo.component';
 import { GetStartedComponent } from './get-started/get-started.component';
 import { ClipboardDemoComponent } from './clipboard-demo/clipboard-demo.component';
 import { DragAndDropDemoComponent } from './drag-and-drop-demo/drag-and-drop-demo.component';
@@ -42,6 +44,7 @@ import { ParentServiceDemoComponent } from './parent-service-demo/parent-service
     TypographyComponent,
     QRCodeDemoComponent,
     SectionDemoComponent,
+    ScheduleDemoComponent,
     GetStartedComponent,
     ClipboardDemoComponent,
     DragAndDropDemoComponent,
@@ -71,6 +74,7 @@ import { ParentServiceDemoComponent } from './parent-service-demo/parent-service
     EventsModule,
     QRCodeModule,
     SectionModule,
+    ScheduleModule,
     AppRoutingModule
   ],
   providers: [],

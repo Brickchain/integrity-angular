@@ -1,0 +1,69 @@
+<div class="integrity-schedule">
+    <div class="when">
+        <form>
+            <mat-form-field>
+                <mat-select [(ngModel)]="whenChoice"  name="whenChoice" placeholder="{{whenText}}" (selectionChange)="onInputChanged()">
+                    <mat-option value="any">{{ anytimeText }}</mat-option>
+                    <mat-option value="specific">{{ specificTimeText }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="date-picker" *ngIf="whenChoice === 'specific'">
+              <div class="fromto">
+                  <mat-form-field>
+                    <input matInput [(ngModel)]="fromDate" name="fd" [owlDateTime]="fd" (dateTimeChange)="onFromTimeChanged()" placeholder="{{fromText}}">
+                    <mat-icon matSuffix [owlDateTimeTrigger]="fd" color="accent">today</mat-icon>
+                    <owl-date-time #fd [pickerType]="'calendar'"></owl-date-time>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput [(ngModel)]="fromTime" name="ft" [owlDateTime]="ft" (dateTimeChange)="onFromTimeChanged()" placeholder="{{atText}}">
+                    <mat-icon matSuffix [owlDateTimeTrigger]="ft" color="accent">schedule</mat-icon>
+                    <owl-date-time #ft [pickerType]="'timer'"></owl-date-time>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput [(ngModel)]="toDate" name="td" [owlDateTime]="td" (dateTimeChange)="onToTimeChanged()" placeholder="{{toText}}">
+                    <mat-icon matSuffix [owlDateTimeTrigger]="td" color="accent">today</mat-icon>
+                    <owl-date-time #td [pickerType]="'calendar'"></owl-date-time>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput [(ngModel)]="toTime" name="tt" [owlDateTime]="tt" (dateTimeChange)="onToTimeChanged()" placeholder="{{atText}}">
+                    <mat-icon matSuffix [owlDateTimeTrigger]="tt" color="accent">schedule</mat-icon>
+                    <owl-date-time #tt [pickerType]="'timer'"></owl-date-time>
+                  </mat-form-field>
+              </div>
+              <mat-checkbox name="shouldRepeat" [(ngModel)]="shouldRepeat" (change)="onInputChanged()">{{repeatText}}</mat-checkbox>
+              <div *ngIf="shouldRepeat">
+                  <mat-form-field>
+                      <mat-select [(ngModel)]="repeatNumber"  name="repeatNumber" placeholder="{{everyText}}" (selectionChange)="onInputChanged()">
+                          <mat-option *ngFor="let number of repeatNumbers" [value]="repeatNumbers[number-1]">{{number}}</mat-option>
+                      </mat-select>
+                  </mat-form-field>
+                  <mat-form-field>
+                      <mat-select [(ngModel)]="repeatType"  name="repeatType" (selectionChange)="onInputChanged()">
+                          <mat-option *ngFor="let option of repeatTypeOptions" [value]="option">{{ repeatNumber > 1 ? option.plural : option.singular }}</mat-option>
+                      </mat-select>
+                  </mat-form-field>
+                  <div class="week-options" *ngIf="repeatType.type === 'week'">
+                    <label>{{repeatOnText}}</label>
+                    <button mat-mini-fab *ngFor="let day of days" [ngClass]="{'unselected': isSelected(day) == false }" (click)="selectDay(day)">{{ day[0] }}</button>
+                  </div>
+                  <div class="month-information" *ngIf="repeatType.type === 'month'">
+                    {{everyMonthtext}}{{fromDate.date()}}
+                  </div>
+              </div>
+            </div>
+            <div class="until" *ngIf="shouldRepeat || whenChoice !== 'specific'">
+                <mat-form-field>
+                    <mat-select [(ngModel)]="untilChoice"  name="untilChoice" placeholder="{{untilText}}" (selectionChange)="onInputChanged()">
+                      <mat-option value="nolimit">{{ untilNoLimitText }}</mat-option>
+                      <mat-option value="date">{{ untilDateText }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field *ngIf="untilChoice === 'date'" class="untilDate">
+                    <input matInput [(ngModel)]="untilDate" name="ud" [owlDateTime]="ud" (dateTimeChange)="onInputChanged()" placeholder="{{selectEndDateText}}" [min]="this.whenChoice === 'specific' ? this.toDate : this.fromDate">
+                    <mat-icon matSuffix [owlDateTimeTrigger]="ud" color="accent">today</mat-icon>
+                    <owl-date-time #ud [pickerType]="'calendar'"></owl-date-time>
+                </mat-form-field>
+            </div>
+        </form>
+    </div>
+</div>

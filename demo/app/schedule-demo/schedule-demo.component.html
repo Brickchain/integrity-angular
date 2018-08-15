@@ -1,0 +1,76 @@
+<integrity-section title="Definition and Usage">
+  The &lt;integrity-schedule&gt; component is used for picking schedules.
+</integrity-section>
+
+<integrity-section title="Example">
+    <pre>&lt;integrity-schedule
+  (scheduleChange)="onScheduleChanged($event)"&gt;
+&lt;/integrity-schedule&gt;</pre>
+</integrity-section>
+
+<integrity-section title="Schedule format">
+  <pre>
+    interface ISchedule {{ '{' }}
+      from: Date;
+      to?: Date;
+      until?: Date;
+      repeatType?: string;
+      period?: number;
+      weekDays?: Array&lt;string&gt;;
+    {{ '}' }}
+  </pre>
+</integrity-section>
+
+<integrity-section title="Attributes">
+  <table>
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Required</th>
+        <th>Value</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>schedule</td>
+            <td>Input</td>
+            <td>An optional initial schedule can be provided.</td>
+          </tr>
+        <tr>
+          <td>scheduleChange</td>
+          <td>Output</td>
+          <td>Any time an input is changed, as well as on initialization, the currently chosen schedule is emitted.</td>
+        </tr>
+    </tbody>
+  </table>
+</integrity-section>
+
+<integrity-section title="Demo">
+
+  <integrity-schedule
+    whenText="When"
+    untilText="Until"
+    anytimeText="Anytime"
+    fromText="From"
+    toText="To"
+    atText="At"
+    specificTimeText="On a specific moment"
+    repeatText="Repeat"
+    everyText="Every"
+    dayText="Day"
+    dayPluralText="Days"
+    weekText="Week"
+    weekPluralText="Weeks"
+    monthText="Month"
+    monthPluralText="Months"
+    yearText="Year"
+    yearPluralText="Years"
+    addMomentText="Add moment"
+    untilNoLimitText="No limit"
+    untilDateText="Date"
+    selectEndDateText="Select end date"
+    repeatOnText="Repeat on"
+    everyMonthtext="Every month on day "></integrity-schedule>
+
+</integrity-section>

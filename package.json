@@ -1,6 +1,6 @@
 {
   "name": "@brickchain/integrity-angular",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Library to provide angular utilities and themes",
   "main": "./bundles/integrity-angular.umd.js",
   "module": "./modules/integrity-angular.es5.js",
@@ -17,6 +17,9 @@
   },
   "typings": "./integrity-angular.d.ts",
   "author": "Erik Hedenström <erik@brickchain.com>",
+  "contributors": [
+    "Jesper Brännström <jesper@brickchain.com>"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Brickchain/integrity-angular.git"
@@ -77,6 +80,8 @@
     "karma-sourcemap-loader": "0.3.7",
     "karma-spec-reporter": "0.0.31",
     "karma-webpack": "2.0.5",
+    "ng-pick-datetime": "^5.2.0",
+    "ng-pick-datetime-moment": "1.0.5",
     "node-sass": "^4.9.0",
     "qr-image": "3.2.0",
     "reflect-metadata": "0.1.10",
