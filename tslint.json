@@ -20,6 +20,7 @@
               "integrity"
           ],
           "kebab-case"
-      ]
+      ],
+      "no-non-null-assertion": false
   }
 }

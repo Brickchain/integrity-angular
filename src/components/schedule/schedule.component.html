@@ -44,7 +44,7 @@
                   </mat-form-field>
                   <div class="week-options" *ngIf="repeatType.type === 'week'">
                     <label>{{repeatOnText}}</label>
-                    <button mat-mini-fab *ngFor="let day of days" [ngClass]="{'unselected': isSelected(day) == false }" (click)="selectDay(day)">{{ day[0] }}</button>
+                    <button mat-mini-fab *ngFor="let day of weekdays" [ngClass]="{'unselected': isSelected(day) == false }" (click)="selectDay(day)">{{ day[0] }}</button>
                   </div>
                   <div class="month-information" *ngIf="repeatType.type === 'month'">
                     {{everyMonthtext}}{{fromDate.date()}}

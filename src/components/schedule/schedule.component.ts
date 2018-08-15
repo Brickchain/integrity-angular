@@ -36,14 +36,15 @@ export class ScheduleComponent implements OnInit {
 
   @Output() scheduleChange = new EventEmitter<ISchedule>();
 
+  shouldRepeat: boolean;
   whenChoice: string;
   untilChoice: string;
   repeatNumber: any;
   repeatNumbers: Array<number>;
   repeatType?: RepeatTypeOption;
   repeatTypeOptions?: Array<RepeatTypeOption>;
-  days: Array<string>;
-  selectedDays?: Array<string>;
+  weekdays: Array<string>;
+  selectedWeekdays?: Array<string>;
 
   fromDate: moment.Moment;
   fromTime: moment.Moment;
@@ -52,6 +53,7 @@ export class ScheduleComponent implements OnInit {
   untilDate: moment.Moment;
 
   constructor() {
+    this.shouldRepeat = false;
     this.whenChoice = 'any';
     this.untilChoice = 'nolimit';
     this.fromDate = moment(new Date(Math.floor(Date.now() / 300000) * 300000));
@@ -63,8 +65,8 @@ export class ScheduleComponent implements OnInit {
     this.repeatNumbers = Array.from(new Array(30), (x, i) => i + 1);
     this.repeatNumber = 1;
     this.setRepeatTypeOptions();
-    this.days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-    this.selectedDays = [];
+    this.weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    this.selectedWeekdays = [];
   }
 
   ngOnInit(): void {
@@ -74,7 +76,7 @@ export class ScheduleComponent implements OnInit {
   }
 
   private initializeSchedule(): void {
-    if (this.schedule != null) {
+    if (this.schedule) {
       this.fromDate = moment(this.schedule.from);
       this.fromTime = moment(this.fromDate);
 
@@ -84,7 +86,7 @@ export class ScheduleComponent implements OnInit {
         this.toDate = moment(this.schedule.to);
         this.toTime = moment(this.toDate);
 
-        if (this.schedule.to === moment(this.schedule.to).endOf('day')) {
+        if (moment(this.schedule.to) === moment(this.schedule.to).endOf('day')) {
           this.untilChoice = 'date';
           this.untilDate = moment(this.schedule.until);
           return;
@@ -93,11 +95,11 @@ export class ScheduleComponent implements OnInit {
         this.whenChoice = 'specific';
       }
 
-      if (this.schedule.repeatType != null) {
+      if (this.schedule.repeatType) {
         this.shouldRepeat = true;
         this.repeatNumber = this.schedule.period;
-        this.repeatType = this.schedule.repeatType;
-        this.selectedDays = this.schedule.weekDays != null ? this.schedule.weekDays : this.selectedDays;
+        this.repeatType = this.repeatTypeOptions!.filter(o => o.type === this.schedule!.repeatType)![0];
+        this.selectedWeekdays = this.schedule.weekdays != null ? this.schedule.weekdays : this.selectedWeekdays;
 
         if (this.schedule.until != null) {
           this.untilChoice = 'date';
@@ -149,11 +151,11 @@ export class ScheduleComponent implements OnInit {
     }
 
     if (this.shouldRepeat) {
-      schedule['repeatType'] = this.repeatType.type;
+      schedule['repeatType'] = this.repeatType!.type;
       schedule['period'] = this.repeatNumber;
 
-      if (this.repeatType.type === 'week') {
-        schedule['weekdays'] = this.selectedDays;
+      if (this.repeatType!.type === 'week') {
+        schedule['weekdays'] = this.selectedWeekdays;
       }
     }
 
@@ -177,23 +179,23 @@ export class ScheduleComponent implements OnInit {
   }
 
   selectDay(day: string): void {
-    if (this.selectedDays == null) { return; }
+    if (this.selectedWeekdays == null) { return; }
 
-    if (this.selectedDays.indexOf(day) === -1) {
-      this.selectedDays.push(day);
+    if (this.selectedWeekdays.indexOf(day) === -1) {
+      this.selectedWeekdays.push(day);
     } else {
-      this.selectedDays.splice(this.selectedDays.indexOf(day), 1);
+      this.selectedWeekdays.splice(this.selectedWeekdays.indexOf(day), 1);
     }
 
     this.onInputChanged();
   }
 
   isSelected(day: string): boolean {
-    return this.selectedDays != null && this.selectedDays.indexOf(day) !== -1;
+    return this.selectedWeekdays != null && this.selectedWeekdays.indexOf(day) !== -1;
   }
 }
 
-interface RepeatTypeOption {
+export interface RepeatTypeOption {
     type: string;
     singular: string;
     plural: string;
@@ -205,5 +207,5 @@ export interface ISchedule {
   until?: Date;
   repeatType?: string;
   period?: number;
-  weekDays?: Array<string>;
+  weekdays?: Array<string>;
 }

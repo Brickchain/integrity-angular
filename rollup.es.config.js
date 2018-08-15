@@ -9,6 +9,14 @@ export default {
         sourcemap: true
     },
     plugins: [
+        {
+          name: 'replace moment imports',
+          transform: code =>
+            ({
+              code: code.replace(/import\s*\*\s*as\s*moment/g, 'import moment'),
+              map: { mappings: '' }
+            })
+        },
         sourcemaps(),
         license({
             sourceMap: true,
