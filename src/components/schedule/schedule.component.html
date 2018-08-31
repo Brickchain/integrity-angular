@@ -2,12 +2,16 @@
     <div class="when">
         <form>
             <mat-form-field>
-                <mat-select [(ngModel)]="whenChoice"  name="whenChoice" placeholder="{{whenText}}" (selectionChange)="onInputChanged()">
+                <mat-select
+                  name="whenChoice"
+                  placeholder="{{whenText}}"
+                  (selectionChange)="onWhenChoiceChanged($event)"
+                  [value]="whenChoice">
                     <mat-option value="any">{{ anytimeText }}</mat-option>
                     <mat-option value="specific">{{ specificTimeText }}</mat-option>
                 </mat-select>
             </mat-form-field>
-            <div class="date-picker" *ngIf="whenChoice === 'specific'">
+            <div class="date-picker" *ngIf="(whenChoiceObserver | async) === 'specific'">
               <div class="fromto">
                   <mat-form-field>
                     <input matInput [(ngModel)]="fromDate" name="fd" [owlDateTime]="fd" (dateTimeChange)="onFromTimeChanged()" placeholder="{{fromText}}">
@@ -53,12 +57,12 @@
             </div>
             <div class="until" *ngIf="shouldRepeat || whenChoice !== 'specific'">
                 <mat-form-field>
-                    <mat-select [(ngModel)]="untilChoice"  name="untilChoice" placeholder="{{untilText}}" (selectionChange)="onInputChanged()">
+                    <mat-select [value]="untilChoice"  name="untilChoice" placeholder="{{untilText}}" (selectionChange)="onUntilChoiceChanged($event)">
                       <mat-option value="nolimit">{{ untilNoLimitText }}</mat-option>
                       <mat-option value="date">{{ untilDateText }}</mat-option>
                     </mat-select>
                 </mat-form-field>
-                <mat-form-field *ngIf="untilChoice === 'date'" class="untilDate">
+                <mat-form-field *ngIf="(untilChoiceObserver | async) === 'date'" class="untilDate">
                     <input matInput [(ngModel)]="untilDate" name="ud" [owlDateTime]="ud" (dateTimeChange)="onInputChanged()" placeholder="{{selectEndDateText}}" [min]="this.whenChoice === 'specific' ? this.toDate : this.fromDate">
                     <mat-icon matSuffix [owlDateTimeTrigger]="ud" color="accent">today</mat-icon>
                     <owl-date-time #ud [pickerType]="'calendar'"></owl-date-time>

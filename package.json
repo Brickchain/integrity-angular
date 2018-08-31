@@ -1,6 +1,6 @@
 {
   "name": "@brickchain/integrity-angular",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Library to provide angular utilities and themes",
   "main": "./bundles/integrity-angular.umd.js",
   "module": "./modules/integrity-angular.es5.js",
@@ -61,7 +61,6 @@
     "@angular/platform-server": "5.2.11",
     "@angular/router": "5.2.11",
     "@brickchain/integrity-theme": "0.2.0",
-    "@compodoc/compodoc": "1.1.2",
     "@types/jasmine": "2.6.2",
     "@types/node": "8.0.47",
     "@types/qr-image": "3.2.1",
@@ -90,7 +89,7 @@
     "rollup-plugin-license": "0.6.0",
     "rollup-plugin-node-resolve": "3.2.0",
     "rollup-plugin-sourcemaps": "0.4.2",
-    "rxjs": "5.5.2",
+    "rxjs": "5.5.11",
     "shelljs": "0.7.8",
     "source-map-loader": "0.2.3",
     "ts-loader": "3.1.1",
@@ -99,6 +98,6 @@
     "typescript": "2.4.2",
     "uglify-js": "3.1.6",
     "webpack": "3.8.1",
-    "zone.js": "0.8.18"
+    "zone.js": "0.8.26"
   }
 }

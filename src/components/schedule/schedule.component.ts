@@ -1,5 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import * as moment from 'moment';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'integrity-schedule',
@@ -36,6 +38,12 @@ export class ScheduleComponent implements OnInit {
 
   @Output() scheduleChange = new EventEmitter<ISchedule>();
 
+  private _whenChoiceSubject: BehaviorSubject<string> = new BehaviorSubject<string>('any');
+  public whenChoiceObserver: Observable<string> = this._whenChoiceSubject.asObservable();
+
+  private _untilChoiceSubject: BehaviorSubject<string> = new BehaviorSubject<string>('nolimit');
+  public untilChoiceObserver: Observable<string> = this._untilChoiceSubject.asObservable();
+
   shouldRepeat: boolean;
   whenChoice: string;
   untilChoice: string;
@@ -67,6 +75,8 @@ export class ScheduleComponent implements OnInit {
     this.setRepeatTypeOptions();
     this.weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     this.selectedWeekdays = [];
+    this.whenChoiceObserver.subscribe(whenChoice => this.whenChoice = whenChoice);
+    this.untilChoiceObserver.subscribe(untilChoice => this.untilChoice = untilChoice);
   }
 
   ngOnInit(): void {
@@ -87,12 +97,12 @@ export class ScheduleComponent implements OnInit {
         this.toTime = moment(this.toDate);
 
         if (moment(this.schedule.to) === moment(this.schedule.to).endOf('day')) {
-          this.untilChoice = 'date';
+          this._untilChoiceSubject.next('date');
           this.untilDate = moment(this.schedule.until);
           return;
         }
 
-        this.whenChoice = 'specific';
+        this._whenChoiceSubject.next('specific');
       }
 
       if (this.schedule.repeatType) {
@@ -102,7 +112,7 @@ export class ScheduleComponent implements OnInit {
         this.selectedWeekdays = this.schedule.weekdays != null ? this.schedule.weekdays : this.selectedWeekdays;
 
         if (this.schedule.until != null) {
-          this.untilChoice = 'date';
+          this._untilChoiceSubject.next('date');
           this.untilDate = moment(this.schedule.until);
         }
       }
@@ -192,6 +202,16 @@ export class ScheduleComponent implements OnInit {
 
   isSelected(day: string): boolean {
     return this.selectedWeekdays != null && this.selectedWeekdays.indexOf(day) !== -1;
+  }
+
+  onWhenChoiceChanged(change: any) {
+    this._whenChoiceSubject.next(change.value);
+    this.onInputChanged();
+  }
+
+  onUntilChoiceChanged(change: any) {
+    this._untilChoiceSubject.next(change.value);
+    this.onInputChanged();
   }
 }
 
