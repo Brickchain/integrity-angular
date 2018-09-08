@@ -34,13 +34,21 @@
     <tbody>
         <tr>
             <td>schedule</td>
-            <td>Input</td>
-            <td>An optional initial schedule can be provided.</td>
+            <td>no</td>
+            <td>ISchedule</td>
+            <td>Optional initial schedule.</td>
           </tr>
         <tr>
           <td>scheduleChange</td>
-          <td>Output</td>
+          <td>yes</td>
+          <td>ISchedule</td>
           <td>Any time an input is changed, as well as on initialization, the currently chosen schedule is emitted.</td>
+        </tr>
+        <tr>
+          <td>simple</td>
+          <td>no</td>
+          <td>none</td>
+          <td>Toggles a simplified date picker with inputs for 'from' and 'to'.</td>
         </tr>
     </tbody>
   </table>

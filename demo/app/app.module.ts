@@ -13,6 +13,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -68,6 +69,7 @@ import { ParentServiceDemoComponent } from './parent-service-demo/parent-service
     MatInputModule,
     MatSelectModule,
     MatCardModule,
+    MatCheckboxModule,
     ClipboardModule,
     DialogsModule,
     DragAndDropModule,

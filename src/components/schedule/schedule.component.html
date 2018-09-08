@@ -1,5 +1,5 @@
-<div class="integrity-schedule">
-    <div class="when">
+<div class="integrity-schedule" [class.simple]="simple">
+    <div class="when" *ngIf="!simple">
         <form>
             <mat-form-field>
                 <mat-select
@@ -69,5 +69,29 @@
                 </mat-form-field>
             </div>
         </form>
+    </div>
+    <div *ngIf="simple" class="date-picker date-picker-simple">
+      <div class="fromto">
+        <mat-form-field>
+          <input matInput [(ngModel)]="fromDate" name="fd" [owlDateTime]="fd" (dateTimeChange)="onFromTimeChanged()" placeholder="{{fromText}}">
+          <mat-icon matSuffix [owlDateTimeTrigger]="fd" color="accent">today</mat-icon>
+          <owl-date-time #fd [pickerType]="'calendar'"></owl-date-time>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [(ngModel)]="fromTime" name="ft" [owlDateTime]="ft" (dateTimeChange)="onFromTimeChanged()" placeholder="{{atText}}">
+          <mat-icon matSuffix [owlDateTimeTrigger]="ft" color="accent">schedule</mat-icon>
+          <owl-date-time #ft [pickerType]="'timer'"></owl-date-time>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [(ngModel)]="toDate" name="td" [owlDateTime]="td" (dateTimeChange)="onToTimeChanged()" placeholder="{{toText}}">
+          <mat-icon matSuffix [owlDateTimeTrigger]="td" color="accent">today</mat-icon>
+          <owl-date-time #td [pickerType]="'calendar'"></owl-date-time>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [(ngModel)]="toTime" name="tt" [owlDateTime]="tt" (dateTimeChange)="onToTimeChanged()" placeholder="{{atText}}">
+          <mat-icon matSuffix [owlDateTimeTrigger]="tt" color="accent">schedule</mat-icon>
+          <owl-date-time #tt [pickerType]="'timer'"></owl-date-time>
+        </mat-form-field>
+    </div>
     </div>
 </div>

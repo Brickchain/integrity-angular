@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import * as moment from 'moment';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
@@ -11,6 +12,7 @@ import { Observable } from 'rxjs/Observable';
 export class ScheduleComponent implements OnInit {
 
   @Input() public schedule?: ISchedule;
+
 
   @Input() public whenText = '';
   @Input() public untilText = '';
@@ -37,6 +39,11 @@ export class ScheduleComponent implements OnInit {
   @Input() public everyMonthtext = '';
 
   @Output() scheduleChange = new EventEmitter<ISchedule>();
+
+  private _simple = false;
+  @Input()
+  get simple() { return this._simple; }
+  set simple(value: any) { this._simple = coerceBooleanProperty(value); }
 
   private _whenChoiceSubject: BehaviorSubject<string> = new BehaviorSubject<string>('any');
   public whenChoiceObserver: Observable<string> = this._whenChoiceSubject.asObservable();
