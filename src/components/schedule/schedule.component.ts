@@ -157,17 +157,19 @@ export class ScheduleComponent implements OnInit {
       from: this.fromDate.toDate()
     };
 
-    if (this.whenChoice === 'any' && this.untilChoice === 'date') {
-      schedule['to'] = this.untilDate.toDate();
-    } else if (this.whenChoice === 'specific') {
+    if (this.simple || this.whenChoice === 'specific') {
       schedule['to'] = this.toDate.toDate();
+    } else if (this.whenChoice === 'any' && this.untilChoice === 'nolimit') {
+      schedule['to'] = undefined;
+    } else if (this.whenChoice === 'any' && this.untilChoice === 'date') {
+      schedule['to'] = this.untilDate.toDate();
     }
 
     if (this.shouldRepeat && this.untilChoice === 'date') {
       schedule['until'] = this.untilDate.toDate();
     }
 
-    if (this.shouldRepeat) {
+    if (this.shouldRepeat && this.whenChoice === 'specific') {
       schedule['repeatType'] = this.repeatType!.type;
       schedule['period'] = this.repeatNumber;
 
