@@ -1,6 +1,6 @@
 {
   "name": "@brickchain/integrity-angular",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "description": "Library to provide angular utilities and themes",
   "main": "./bundles/integrity-angular.umd.js",
   "module": "./modules/integrity-angular.es5.js",
@@ -44,7 +44,9 @@
     "@angular/cdk": ">= 5.2.0",
     "@angular/common": ">= 5.2.0",
     "@angular/core": ">= 5.2.0",
-    "@angular/material": ">= 5.2.0"
+    "@angular/material": ">= 5.2.0",
+    "ng-pick-datetime": "^5.2.6",
+    "ng-pick-datetime-moment": "1.0.5"
   },
   "devDependencies": {
     "@angular/animations": "5.2.11",
