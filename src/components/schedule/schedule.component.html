@@ -55,7 +55,7 @@
                   </div>
               </div>
             </div>
-            <div class="until" *ngIf="shouldRepeat || whenChoice !== 'specific'">
+            <div class="until" *ngIf="shouldRepeat && whenChoice === 'specific'">
                 <mat-form-field>
                     <mat-select [value]="untilChoice"  name="untilChoice" placeholder="{{untilText}}" (selectionChange)="onUntilChoiceChanged($event)">
                       <mat-option value="nolimit">{{ untilNoLimitText }}</mat-option>

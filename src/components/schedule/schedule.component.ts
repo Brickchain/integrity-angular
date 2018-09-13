@@ -102,13 +102,6 @@ export class ScheduleComponent implements OnInit {
       } else {
         this.toDate = moment(this.schedule.to);
         this.toTime = moment(this.toDate);
-
-        if (moment(this.schedule.to) === moment(this.schedule.to).endOf('day')) {
-          this._untilChoiceSubject.next('date');
-          this.untilDate = moment(this.schedule.until);
-          return;
-        }
-
         this._whenChoiceSubject.next('specific');
       }
 
@@ -161,8 +154,6 @@ export class ScheduleComponent implements OnInit {
       schedule['to'] = this.toDate.toDate();
     } else if (this.whenChoice === 'any' && this.untilChoice === 'nolimit') {
       schedule['to'] = undefined;
-    } else if (this.whenChoice === 'any' && this.untilChoice === 'date') {
-      schedule['to'] = this.untilDate.toDate();
     }
 
     if (this.shouldRepeat && this.untilChoice === 'date') {
