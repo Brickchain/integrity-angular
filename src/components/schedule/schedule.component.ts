@@ -3,6 +3,7 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import * as moment from 'moment';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
   selector: 'integrity-schedule',
@@ -186,6 +187,11 @@ export class ScheduleComponent implements OnInit {
     this.toDate.minute(this.toTime.minute());
     this.toDate.hour(this.toTime.hour());
     this.scheduleChange.emit(this.getCurrentSchedule());
+  }
+
+  onShouldRepeatChanged(change: MatCheckboxChange): void {
+    this.shouldRepeat = change.checked;
+    this.onInputChanged();
   }
 
   selectDay(day: string): void {
