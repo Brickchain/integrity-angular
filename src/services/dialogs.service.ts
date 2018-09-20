@@ -10,8 +10,9 @@ export class DialogsService {
 
   constructor(private dialog: MatDialog) { }
 
-  public openQRCode(opts: { title?: string, qrdata: string, copySuccessMessage?: string }): Promise<void> {
-    return this.dialog.open(QRCodeDialogComponent, { data: opts }).afterClosed().toPromise();
+  public openQRCode(opts: { title?: string, qrdata: string, copySuccessMessage?: string }, materialOptions?: Object): Promise<void> {
+    const options = { data: opts, ...materialOptions };
+    return this.dialog.open(QRCodeDialogComponent, options).afterClosed().toPromise();
   }
 
   public openConfirm(opts: {
@@ -23,8 +24,10 @@ export class DialogsService {
     cancelColor?: string,
     okIcon?: string,
     cancelIcon?: string
-  }): Promise<boolean> {
-    return this.dialog.open(ConfirmDialogComponent, { data: opts }).afterClosed().toPromise();
+    },
+    materialOptions?: Object): Promise<boolean> {
+    const options = { data: opts, panelClass: 'integrity-modal', ...materialOptions };
+    return this.dialog.open(ConfirmDialogComponent, options).afterClosed().toPromise();
   }
 
   public openSimpleInput(opts: {
@@ -37,8 +40,10 @@ export class DialogsService {
     cancelColor?: string,
     okIcon?: string,
     cancelIcon?: string
-  }): Promise<string | null> {
-    return this.dialog.open(SimpleInputDialogComponent, { data: opts }).afterClosed().toPromise();
+    },
+    materialOptions?: Object): Promise<string | null> {
+    const options = { data: opts, panelClass: 'integrity-modal', ...materialOptions };
+    return this.dialog.open(SimpleInputDialogComponent, options)
+    .afterClosed().toPromise();
   }
-
 }

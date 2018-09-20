@@ -1,6 +1,6 @@
 {
   "name": "@brickchain/integrity-angular",
-  "version": "0.4.8",
+  "version": "0.4.9",
   "description": "Library to provide angular utilities and themes",
   "main": "./bundles/integrity-angular.umd.js",
   "module": "./modules/integrity-angular.es5.js",

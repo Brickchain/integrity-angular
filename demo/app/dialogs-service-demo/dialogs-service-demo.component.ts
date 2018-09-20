@@ -27,7 +27,7 @@ export class DialogsServiceDemoComponent {
       'okIcon': 'delete',
       'okColor': 'warn'
     };
-    this.dialogs.openConfirm(opts).then(confirmed => console.log(confirmed));
+    this.dialogs.openConfirm(opts, { width: 450 }).then(confirmed => console.log(confirmed));
   }
 
   showSimpleInputDialog() {
@@ -36,7 +36,7 @@ export class DialogsServiceDemoComponent {
       'message': 'What is your name?',
       'value': this.input ? this.input : ''
     };
-    this.dialogs.openSimpleInput(opts).then((input: string | null) => this.input = input);
+    this.dialogs.openSimpleInput(opts, { width: 450 }).then((input: string | null) => this.input = input);
   }
 
   showQRCodeDialog() {

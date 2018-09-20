@@ -38,3 +38,16 @@ pre {
   font-family: 'Source Code Pro', monospace;
   color: #999;
 }
+
+.integrity-modal {
+  mat-dialog-container {
+    padding: 30px 30px 40px 30px;
+  }
+
+  button {
+    padding: 5px 40px;
+    border-radius: 40px !important;
+    width: 120px;
+    height: 50px;
+  }
+}
