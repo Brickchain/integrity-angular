@@ -1,6 +1,6 @@
 {
   "name": "@brickchain/integrity-angular",
-  "version": "0.4.9",
+  "version": "0.4.10",
   "description": "Library to provide angular utilities and themes",
   "main": "./bundles/integrity-angular.umd.js",
   "module": "./modules/integrity-angular.es5.js",
@@ -37,16 +37,16 @@
   ],
   "license": "BSD-2-Clause",
   "dependencies": {
-    "tslib": "^1.9.0"
+    "tslib": "^1.9.0",
+    "ng-pick-datetime": "^5.2.6",
+    "ng-pick-datetime-moment": "1.0.5"
   },
   "peerDependencies": {
     "@angular/animations": ">= 5.2.0",
     "@angular/cdk": ">= 5.2.0",
     "@angular/common": ">= 5.2.0",
     "@angular/core": ">= 5.2.0",
-    "@angular/material": ">= 5.2.0",
-    "ng-pick-datetime": "^5.2.6",
-    "ng-pick-datetime-moment": "1.0.5"
+    "@angular/material": ">= 5.2.0"
   },
   "devDependencies": {
     "@angular/animations": "5.2.11",
@@ -81,8 +81,6 @@
     "karma-sourcemap-loader": "0.3.7",
     "karma-spec-reporter": "0.0.31",
     "karma-webpack": "2.0.5",
-    "ng-pick-datetime": "^5.2.6",
-    "ng-pick-datetime-moment": "1.0.5",
     "node-sass": "^4.9.0",
     "qr-image": "3.2.0",
     "reflect-metadata": "0.1.10",
