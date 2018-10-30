@@ -12,6 +12,7 @@ import { DragAndDropDemoComponent } from './drag-and-drop-demo/drag-and-drop-dem
 import { DialogsServiceDemoComponent } from './dialogs-service-demo/dialogs-service-demo.component';
 import { EventsServiceDemoComponent } from './events-service-demo/events-service-demo.component';
 import { ParentServiceDemoComponent } from './parent-service-demo/parent-service-demo.component';
+import { HeaderDemoComponent } from './header-demo/header-demo.component';
 
 const appRoutes: Routes = [
   { path: 'get-started', component: GetStartedComponent },
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
   { path: 'parent-service-demo', component: ParentServiceDemoComponent },
   { path: 'clipboard-demo', component: ClipboardDemoComponent },
   { path: 'drag-and-drop-demo', component: DragAndDropDemoComponent },
+  { path: 'header-demo', component: HeaderDemoComponent },
   { path: '', redirectTo: '/get-started', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];

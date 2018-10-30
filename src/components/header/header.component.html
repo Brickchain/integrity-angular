@@ -1,0 +1,33 @@
+<div class="border" *ngIf="border === 'top'">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<div class="header">
+  <div #injectedContent><ng-content></ng-content></div>
+  <div class="default-content" *ngIf="!injectedContent.innerHTML.trim()">
+      <div class="left-side">
+          <div class="left-bottom">
+            <mat-icon *ngIf="withBackButton" (click)="back()" class="back-button">arrow_back</mat-icon>
+            <div *ngIf="title" class="title">{{ title }}</div>
+          </div>
+        </div>
+        <div class="right-side">
+          <div class="right-bottom">
+              <mat-icon *ngIf="withRightButton" (click)="right()" class="right-button">{{ rightButtonIcon }}</mat-icon>
+          </div>
+        </div>
+  </div>
+</div>
+<div class="border" *ngIf="border == null || border === '' || border === 'bottom'">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>

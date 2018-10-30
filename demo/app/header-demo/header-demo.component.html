@@ -1,0 +1,51 @@
+<integrity-section title="Definition and Usage">
+  Integrity header
+</integrity-section>
+
+<integrity-section title="Example">
+  <pre>&lt;integrity-header&gt;
+&lt;/integrity-header&gt;</pre>
+</integrity-section>
+
+<integrity-section title="Attributes">
+  <table>
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Required</th>
+        <th>Value</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>title</td>
+        <td>no</td>
+        <td>text</td>
+        <td>The title</td>
+      </tr>
+      <tr>
+        <td>withBackButton</td>
+        <td>no</td>
+        <td>-</td>
+        <td>Usage: 'withBackButton' as a property on the element. Consume the backButtonClicked event in a parent component, e.g. (backButtonClicked)="doSomething($event)"</td>
+      </tr>
+      <tr>
+        <td>withRightButton</td>
+        <td>no</td>
+        <td>-</td>
+        <td>Usage: 'withRightButton' as a property on the element. Consume the rightButtonClicked event in a parent component, e.g. (rightButtonClicked)="doSomething($event)"</td>
+      </tr>
+      <tr>
+        <td>rightButtonIcon</td>
+        <td>no</td>
+        <td>text</td>
+        <td>Usage: rightButtonName="icon-name", where icon name is an angular material icon. If no icon is specified then the settings icon is used.</td>
+      </tr>
+    </tbody>
+  </table>
+</integrity-section>
+
+<div class="demo-title">Demo</div>
+<integrity-header title="Header component" withBackButton withRightButton></integrity-header>
+<div class="padding"></div>

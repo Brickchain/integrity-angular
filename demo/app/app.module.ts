@@ -25,6 +25,7 @@ import { EventsModule } from '../../src/modules/events.module';
 import { QRCodeModule } from '../../src/modules/qrcode.module';
 import { SectionModule } from '../../src/modules/section.module';
 import { ScheduleModule } from '../../src/modules/schedule.module';
+import { HeaderModule } from '../../src/modules/header.module';
 
 import { TypographyComponent } from './typography/typography.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -37,6 +38,7 @@ import { DragAndDropDemoComponent } from './drag-and-drop-demo/drag-and-drop-dem
 import { DialogsServiceDemoComponent } from './dialogs-service-demo/dialogs-service-demo.component';
 import { EventsServiceDemoComponent } from './events-service-demo/events-service-demo.component';
 import { ParentServiceDemoComponent } from './parent-service-demo/parent-service-demo.component';
+import { HeaderDemoComponent } from './header-demo/header-demo.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,8 @@ import { ParentServiceDemoComponent } from './parent-service-demo/parent-service
     DragAndDropDemoComponent,
     DialogsServiceDemoComponent,
     EventsServiceDemoComponent,
-    ParentServiceDemoComponent
+    ParentServiceDemoComponent,
+    HeaderDemoComponent
   ],
   entryComponents: [],
   imports: [
@@ -77,7 +80,8 @@ import { ParentServiceDemoComponent } from './parent-service-demo/parent-service
     QRCodeModule,
     SectionModule,
     ScheduleModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HeaderModule
   ],
   providers: [],
   bootstrap: [

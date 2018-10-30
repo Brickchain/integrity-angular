@@ -3,6 +3,7 @@ export { QRCodeDialogComponent } from './components/qrcode-dialog.component';
 export { ConfirmDialogComponent } from './components/confirm-dialog.component';
 export { SimpleInputDialogComponent } from './components/simple-input-dialog.component';
 export { ScheduleComponent } from './components/schedule/schedule.component';
+export { HeaderComponent } from './components/header/header.component';
 
 export { ClipboardDirective } from './directives/clipboard.directive';
 export { DragAndDropDirective } from './directives/drag-and-drop.directive';
@@ -21,3 +22,4 @@ export { ParentModule } from './modules/parent.module';
 
 export { SectionModule } from './modules/section.module';
 export { ScheduleModule} from './modules/schedule.module';
+export { HeaderModule } from './modules/header.module';
