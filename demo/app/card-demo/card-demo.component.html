@@ -1,0 +1,59 @@
+<integrity-section title="Definition and Usage">
+    The &lt;integrity-schedule&gt; component is used for picking schedules.
+  </integrity-section>
+
+  <integrity-section title="Example">
+      <pre>&lt;integrity-schedule
+    (scheduleChange)="onScheduleChanged($event)"&gt;
+  &lt;/integrity-schedule&gt;</pre>
+  </integrity-section>
+
+  <integrity-section title="Schedule format">
+    <pre>
+      interface ISchedule {{ '{' }}
+        from: Date;
+        to?: Date;
+        until?: Date;
+        repeatType?: string;
+        period?: number;
+        weekdays?: Array&lt;string&gt;;
+      {{ '}' }}
+    </pre>
+  </integrity-section>
+
+  <integrity-section title="Attributes">
+    <table>
+      <thead>
+        <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Value</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>schedule</td>
+              <td>no</td>
+              <td>ISchedule</td>
+              <td>Optional initial schedule.</td>
+            </tr>
+          <tr>
+            <td>scheduleChange</td>
+            <td>yes</td>
+            <td>ISchedule</td>
+            <td>Any time an input is changed, as well as on initialization, the currently chosen schedule is emitted.</td>
+          </tr>
+          <tr>
+            <td>simple</td>
+            <td>no</td>
+            <td>none</td>
+            <td>Toggles a simplified date picker with inputs for 'from' and 'to'.</td>
+          </tr>
+      </tbody>
+    </table>
+  </integrity-section>
+
+  <integrity-section title="Demo">
+    <integrity-card title="This is a title" text="Here is some text that is displayed within the text section of the card." buttonText="Button" color="red"></integrity-card>
+  </integrity-section>

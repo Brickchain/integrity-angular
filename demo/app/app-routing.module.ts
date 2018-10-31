@@ -13,6 +13,7 @@ import { DialogsServiceDemoComponent } from './dialogs-service-demo/dialogs-serv
 import { EventsServiceDemoComponent } from './events-service-demo/events-service-demo.component';
 import { ParentServiceDemoComponent } from './parent-service-demo/parent-service-demo.component';
 import { HeaderDemoComponent } from './header-demo/header-demo.component';
+import { CardDemoComponent } from './card-demo/card-demo.component';
 
 const appRoutes: Routes = [
   { path: 'get-started', component: GetStartedComponent },
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
   { path: 'clipboard-demo', component: ClipboardDemoComponent },
   { path: 'drag-and-drop-demo', component: DragAndDropDemoComponent },
   { path: 'header-demo', component: HeaderDemoComponent },
+  { path: 'card-demo', component: CardDemoComponent },
   { path: '', redirectTo: '/get-started', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];

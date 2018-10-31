@@ -26,6 +26,7 @@ import { QRCodeModule } from '../../src/modules/qrcode.module';
 import { SectionModule } from '../../src/modules/section.module';
 import { ScheduleModule } from '../../src/modules/schedule.module';
 import { HeaderModule } from '../../src/modules/header.module';
+import { CardModule } from '../../src/modules/card.module';
 
 import { TypographyComponent } from './typography/typography.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -39,6 +40,7 @@ import { DialogsServiceDemoComponent } from './dialogs-service-demo/dialogs-serv
 import { EventsServiceDemoComponent } from './events-service-demo/events-service-demo.component';
 import { ParentServiceDemoComponent } from './parent-service-demo/parent-service-demo.component';
 import { HeaderDemoComponent } from './header-demo/header-demo.component';
+import { CardDemoComponent } from './card-demo/card-demo.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ import { HeaderDemoComponent } from './header-demo/header-demo.component';
     DialogsServiceDemoComponent,
     EventsServiceDemoComponent,
     ParentServiceDemoComponent,
-    HeaderDemoComponent
+    HeaderDemoComponent,
+    CardDemoComponent
   ],
   entryComponents: [],
   imports: [
@@ -81,7 +84,8 @@ import { HeaderDemoComponent } from './header-demo/header-demo.component';
     SectionModule,
     ScheduleModule,
     AppRoutingModule,
-    HeaderModule
+    HeaderModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [

@@ -1,0 +1,79 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+  .title {
+    padding: 20px;
+    font-weight: bold;
+    font-size: 1.125rem;
+  }
+
+  .text {
+    padding: 0 20px 20px 20px;
+    font-size: 0.875rem;
+  }
+
+  button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    padding: 15px 0;
+    color: white;
+    font-weight: bold;
+    font-size: 0.875rem;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+}
+
+.darkblue {
+  background: #0B5BAB;
+
+  button {
+    background: #064A8F;
+  }
+}
+
+.lightblue {
+  background: #20AFE2;
+
+  button {
+    background: #0B7EA7;
+  }
+}
+
+.green {
+  background: #76B841;
+
+  button {
+    background: #4C9511;
+  }
+}
+
+.yellow {
+  background: #F9B026;
+
+  button {
+    background: #FA9700;
+  }
+}
+
+.orange {
+  background: #F76A0A;
+
+  button {
+    background: #C04102;
+  }
+}
+
+.red {
+  background: #D11E4C;
+
+  button {
+    background: #A00029;
+  }
+}
