@@ -27,6 +27,7 @@ import { SectionModule } from '../../src/modules/section.module';
 import { ScheduleModule } from '../../src/modules/schedule.module';
 import { HeaderModule } from '../../src/modules/header.module';
 import { CardModule } from '../../src/modules/card.module';
+import { ExpansionCardModule } from '../../src/modules/expansion-card.module';
 
 import { TypographyComponent } from './typography/typography.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -41,6 +42,7 @@ import { EventsServiceDemoComponent } from './events-service-demo/events-service
 import { ParentServiceDemoComponent } from './parent-service-demo/parent-service-demo.component';
 import { HeaderDemoComponent } from './header-demo/header-demo.component';
 import { CardDemoComponent } from './card-demo/card-demo.component';
+import { ExpansionCardDemoComponent } from './expansion-card-demo/expansion-card-demo.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,8 @@ import { CardDemoComponent } from './card-demo/card-demo.component';
     EventsServiceDemoComponent,
     ParentServiceDemoComponent,
     HeaderDemoComponent,
-    CardDemoComponent
+    CardDemoComponent,
+    ExpansionCardDemoComponent
   ],
   entryComponents: [],
   imports: [
@@ -85,7 +88,8 @@ import { CardDemoComponent } from './card-demo/card-demo.component';
     ScheduleModule,
     AppRoutingModule,
     HeaderModule,
-    CardModule
+    CardModule,
+    ExpansionCardModule
   ],
   providers: [],
   bootstrap: [

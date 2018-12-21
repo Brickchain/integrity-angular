@@ -1,0 +1,98 @@
+<integrity-section title="Definition and Usage">
+    The &lt;integrity-expansion-card&gt; component is used for displaying expandable cards.
+  </integrity-section>
+
+  <integrity-section title="Example">
+    <pre>
+        &lt;integrity-expansion-card
+        title="French Id"
+        description="Default ID"
+        icon="person_outline"
+        [sections]="sections"
+        error="false"
+        [isDefault]="isDefault"
+        (bottomButtonClicked)="onBottomButtonClicked($event)"&gt;
+        &lt;/integrity-expansion-card&gt;
+    </pre>
+  </integrity-section>
+
+  <integrity-section title="Section format">
+    <pre>
+        export interface IExpansionCardSection {{ '{' }}
+          fields: Array&lt;IExpansionCardSectionField&gt;;
+        {{ '}' }}
+
+        export interface IExpansionCardSectionField {{ '{' }}
+          name: string;
+          values: Array&lt;string&gt;;
+        {{ '}' }}
+    </pre>
+  </integrity-section>
+
+  <integrity-section title="Attributes">
+    <table>
+      <thead>
+        <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Value</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td>title</td>
+            <td>no</td>
+            <td>text</td>
+            <td>Title</td>
+          </tr>
+          <tr>
+            <td>description</td>
+            <td>no</td>
+            <td>text</td>
+            <td>Description</td>
+          </tr>
+          <tr>
+            <td>icon</td>
+            <td>no</td>
+            <td>text</td>
+            <td>The name of the material design icon</td>
+          </tr>
+          <tr>
+            <td>sections</td>
+            <td>no</td>
+            <td>IExpansionCardSection</td>
+            <td>Sections displayed when the card is expanded.</td>
+          </tr>
+          <tr>
+            <td>error</td>
+            <td>no</td>
+            <td>text</td>
+            <td>If the value is anything but '' or 'false', the color scheme and the description will turn red.</td>
+          </tr>
+          <tr>
+            <td>isDefault</td>
+            <td>no</td>
+            <td>text</td>
+            <td>If the value is anything but '' or 'false', the card is marked as default</td>
+          </tr>
+          <tr>
+            <td>bottomButtonClicked</td>
+            <td>no</td>
+            <td>click event</td>
+            <td>Click event triggered when the bottom button is clicked.</td>
+          </tr>
+      </tbody>
+    </table>
+  </integrity-section>
+
+  <integrity-section title="Demo">
+    <integrity-expansion-card
+      title="French Id"
+      description="Default ID"
+      icon="person_outline"
+      [sections]="sections"
+      error="false"
+      [isDefault]="isDefault"
+      (bottomButtonClicked)="onBottomButtonClicked($event)"></integrity-expansion-card>
+  </integrity-section>

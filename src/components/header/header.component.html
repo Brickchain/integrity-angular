@@ -7,7 +7,7 @@
     <div></div>
 </div>
 
-<div class="header">
+<div class="header" [ngClass]="{ 'no-border': !(border == null || border === '' || border === 'bottom')}">
   <div #injectedContent><ng-content></ng-content></div>
   <div class="default-content" *ngIf="!injectedContent.innerHTML.trim()">
       <div class="left-side">

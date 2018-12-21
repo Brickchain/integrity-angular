@@ -5,6 +5,7 @@ export { SimpleInputDialogComponent } from './components/simple-input-dialog.com
 export { ScheduleComponent } from './components/schedule/schedule.component';
 export { HeaderComponent } from './components/header/header.component';
 export { CardComponent } from './components/card/card.component';
+export { ExpansionCardComponent } from './components/expansion-card/expansion-card.component';
 
 export { ClipboardDirective } from './directives/clipboard.directive';
 export { DragAndDropDirective } from './directives/drag-and-drop.directive';
@@ -25,3 +26,4 @@ export { SectionModule } from './modules/section.module';
 export { ScheduleModule} from './modules/schedule.module';
 export { HeaderModule } from './modules/header.module';
 export { CardModule } from './modules/card.module';
+export { ExpansionCardModule } from './modules/expansion-card.module';

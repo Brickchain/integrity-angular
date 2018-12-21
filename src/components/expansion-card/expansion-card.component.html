@@ -1,0 +1,50 @@
+<div class="integrity-expansion-card {{ accent }}" [ngClass]="{ 'is-open': isOpen, 'has-error': error !== '' && error !== 'false' }">
+  <div class="main">
+    <div class="image" *ngIf="image != ''">
+      <img src="{{image}}">
+    </div>
+    <div class="icon" *ngIf="icon != ''">
+      <mat-icon>{{icon}}</mat-icon>
+    </div>
+    <div class="content">
+      <div class="information">
+        <div class="title">
+            {{ title }}
+          </div>
+          <div class="description">
+            {{ description }}
+        </div>
+      </div>
+
+      <button class="expansion-button" (click)="toggle()">
+        <mat-icon>expand_more</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="expansion-content">
+    <div class="section" *ngFor="let section of sections">
+      <div class="field" *ngFor="let field of section.fields">
+        <div class="field-name">
+          {{ field.name }}
+        </div>
+        <div class="values">
+          <div class="field-value" *ngFor="let value of field.values">
+            {{ value }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <button (click)="onBottomButtonClicked($event)">
+        <div *ngIf="isDefault === '' || isDefault ==='false'">
+          <mat-icon>star_border</mat-icon>
+          Make default
+        </div>
+        <div *ngIf="!(isDefault === '' || isDefault ==='false')">
+          <mat-icon>star</mat-icon>
+          Default
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
